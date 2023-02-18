@@ -15,6 +15,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
 
+from django.utils.translation import gettext_lazy as _
+
 
 load_dotenv()
 
@@ -131,15 +133,20 @@ TIME_ZONE = os.getenv('TIME_ZONE')
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
  
 LANGUAGES = (
-    ('en', 'English'),
-    ('ru', 'Russian'),
+    ('ru-ru', _('Russian')),
+    ('en-us', _('English')),
+    
 )
 
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-]
+print(os.path.join(BASE_DIR, 'locale'))
+
+#LOCALE_PATHS = [
+#    os.path.join(BASE_DIR, 'locale'),
+    #os.path.join(BASE_DIR, 'task_manager', 'locale'),
+#]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
