@@ -4,9 +4,8 @@ MANAGE := poetry run python manage.py
 test:
 	@poetry run pytest
 
-.PHONY: test-coverage
 test-coverage:
-	@poetry run pytest --cov=task_manager --cov-report xml
+	poetry run pytest --cov=task_manager tests/ --cov-report xml
 
 .PHONY: setup
 setup: db-clean install migrate
