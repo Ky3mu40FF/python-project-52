@@ -12,7 +12,7 @@ test-coverage:
 setup: db-clean install migrate
 
 .PHONY: install
-install-dev:
+install:
 	@poetry install
 
 .PHONY: db-clean
