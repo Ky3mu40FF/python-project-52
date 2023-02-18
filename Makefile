@@ -5,7 +5,7 @@ test:
 	@poetry run pytest
 
 test-coverage:
-	poetry run pytest --cov=task_manager tests/ --cov-report xml
+	poetry run pytest --cov=task_manager tests/
 
 .PHONY: setup
 setup: db-clean install migrate
