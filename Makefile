@@ -6,7 +6,7 @@ test:
 
 .PHONY: test-coverage
 test-coverage:
-	@poetry run pytest --cov=page_loader --cov-report xml
+	@poetry run pytest --cov=task_manager --cov-report xml
 
 .PHONY: setup
 setup: db-clean install migrate
