@@ -6,13 +6,4 @@
 
 {% block content %}
 <h1>{% translate "Welcome" %}</h1>
-<h1>{{ LANGUAGE_CODE }}</h1>
-{% get_available_languages as LANGUAGES %}
-{% for language in LANGUAGES %}
-    {% if language.0 != LANGUAGE_CODE %}
-        <button type="submit" name="language" value="{{ language.0 }}">
-            {{ language.1 }}
-        </button>
-    {% endif %}
-{% endfor %}
 {% endblock content %}
