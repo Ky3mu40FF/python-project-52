@@ -26,6 +26,7 @@ django-extensions = "^3.2.1"
 ipython = "^8.10.0"
 pytest-django = "^4.5.2"
 wemake-python-styleguide = "^0.17.0"
+pytest = "^7.2.1"
 
 [build-system]
 requires = ["poetry-core"]
