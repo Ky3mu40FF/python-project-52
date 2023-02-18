@@ -133,20 +133,11 @@ TIME_ZONE = os.getenv('TIME_ZONE')
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
  
 LANGUAGES = (
     ('ru-ru', _('Russian')),
     ('en-us', _('English')),
-    
 )
-
-print(os.path.join(BASE_DIR, 'locale'))
-
-#LOCALE_PATHS = [
-#    os.path.join(BASE_DIR, 'locale'),
-    #os.path.join(BASE_DIR, 'task_manager', 'locale'),
-#]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
