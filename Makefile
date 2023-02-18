@@ -13,7 +13,7 @@ setup: db-clean install migrate
 
 .PHONY: install
 install:
-	@poetry install
+	@poetry install --no-root
 
 .PHONY: db-clean
 db-clean:

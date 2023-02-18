@@ -5,7 +5,6 @@ description = "Django based Task manager."
 authors = ["Aleksei Fominykh <foma1994@yandex.ru>"]
 repository = "https://github.com/Ky3mu40FF/python-project-52"
 readme = "README.md"
-packages = [{include = "hexlet_code"}]
 
 classifiers = [
     "Natural Language :: English",
