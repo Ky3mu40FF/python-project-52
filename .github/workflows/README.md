@@ -1,5 +1,23 @@
-# Automatic tests
+# Task Manager
 
-After completing all the steps in the project, automatic tests will become available to you. Tests are run on each commit - once all tasks in the Hexlet interface are completed, make a commit, and the tests will run automatically.
+## Status
 
-The hexlet-check.yml file is responsible for running these tests - do not delete this file, edit it, or rename the repository.
+### Hexlet tests and linter status
+
+[![Actions Status](https://github.com/Ky3mu40FF/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/Ky3mu40FF/python-project-52/actions)
+
+### CodeClimate Maintainability and Test Coverage status
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/43afec8fa283efb83662/maintainability)](https://codeclimate.com/github/Ky3mu40FF/python-project-52/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/43afec8fa283efb83662/test_coverage)](https://codeclimate.com/github/Ky3mu40FF/python-project-52/test_coverage)
+
+### Internal tests and linter status
+
+[![Tests and Linter Status](https://github.com/Ky3mu40FF/python-project-52/workflows/code-check/badge.svg)](https://github.com/Ky3mu40FF/python-project-52/actions)
+
+---
+
+## Description
+
+Django based task manager.

@@ -4,11 +4,15 @@ MANAGE := poetry run python manage.py
 test:
 	@poetry run pytest
 
+.PHONY: test-coverage
+test-coverage:
+	@poetry run pytest --cov=page_loader --cov-report xml
+
 .PHONY: setup
 setup: db-clean install migrate
 
 .PHONY: install
-install:
+install-dev:
 	@poetry install
 
 .PHONY: db-clean
