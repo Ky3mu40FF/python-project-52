@@ -1,0 +1,30 @@
+{% load bootstrap4 %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Task Manager</title>
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
+        <style>
+            body {
+                padding-top: 60px;
+            }
+        </style>
+    </head>
+    <body class="bg-light">
+
+        <header class="container mt-4">
+            {% include "navigation.html" %}
+        </header>
+        
+        <main role="main" class="container">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+    </body>
+</html>
