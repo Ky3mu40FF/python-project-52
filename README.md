@@ -33,3 +33,5 @@ make test
 
 This repository is for educational project at Hexlet course Python Developer.
 This project is Django-based Task manager.
+
+Deployed service is [here](https://python-project-52-production-39fb.up.railway.app/).
