@@ -1,0 +1,45 @@
+{% extends 'layout.html'%}
+{% load bootstrap4 %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block content %}
+<h1>{% translate "UsersSignUpPageHeader" %}</h1>
+<form action="{% url 'users_create' %}" method="post">
+    {% csrf_token %}
+    <!-- Username -->
+    <div class="form-group">
+        <label for="{{ form.username.id_for_label}}">{% translate "UsersSignUpPageUsernameFieldLabel" %}</label>
+        {{ form.username }}
+        {{ form.username.errors }}
+    </div>
+    <!-- Fisrt Name -->
+    <div class="form-group">
+        <label for="{{ form.first_name.id_for_label}}">{% translate "UsersSignUpPageFirstNameFieldLabel" %}</label>
+        {{ form.first_name }}
+        {{ form.first_name.errors }}
+    </div>
+    <!-- Last Name -->
+    <div class="form-group">
+        <label for="{{ form.last_name.id_for_label}}">{% translate "UsersSignUpPageLastNameFieldLabel" %}</label>
+        {{ form.last_name }}
+        {{ form.last_name.errors }}
+    </div>
+    <!-- Password -->
+    <div class="form-group">
+        <label for="{{ form.password1.id_for_label}}">{% translate "UsersSignUpPagePassword1FieldLabel" %}</label>
+        {{ form.password1 }}
+        {{ form.password1.errors }}
+    </div>
+    <!-- Password Confirmation -->
+    <div class="form-group">
+        <label for="{{ form.password2.id_for_label}}">{% translate "UsersSignUpPagePassword2FieldLabel" %}</label>
+        {{ form.password2 }}
+        <div class="invalid-feedback">{{ form.password2.errors }}</div>
+    </div>
+    <!-- Submit Button -->
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="{% translate 'UserSignUpFormSubmitButton' %}">
+    </div>
+</form>
+{% endblock content %}

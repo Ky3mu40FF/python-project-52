@@ -1,0 +1,15 @@
+{% extends 'layout.html'%}
+{% load bootstrap4 %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block content %}
+<h1>{% translate "UsersLogInPageHeader" %}</h1>
+<p>Are you shure you want to delete {{ user_full_name }}?</p>
+<form action="{% url 'users_delete' id=user_id %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="{% translate 'UserDeleteFormSubmitButton' %}">
+    </div>
+</form>
+{% endblock content %}

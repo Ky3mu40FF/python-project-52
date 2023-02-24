@@ -1,0 +1,51 @@
+{% extends 'layout.html'%}
+{% load bootstrap4 %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
+{% block content %}
+<h1>{% translate "UsersUpdatePageHeader" %}</h1>
+
+<form action="{% url 'users_update' id=user_id %}" method="post">
+    {% csrf_token %}
+    <!-- Username -->
+    <div class="form-group">
+        {{ form.username.errors }}
+        <label for="{{ form.username.id_for_label}}">{% translate "UsersUpdatePageUsernameFieldLabel" %}</label>
+        {{ form.username }}
+    </div>
+    <!-- First Name -->
+    <div class="form-group">
+        {{ form.first_name.errors }}
+        <label for="{{ form.first_name.id_for_label}}">{% translate "UsersUpdatePageFirstNameFieldLabel" %}</label>
+        {{ form.first_name }}
+    </div>
+    <!-- Last Name -->
+    <div class="form-group">
+        {{ form.last_Name.errors }}
+        <label for="{{ form.last_name.id_for_label}}">{% translate "UsersUpdatePageLastNameFieldLabel" %}</label>
+        {{ form.last_name }}
+    </div>
+    <!-- Password -->
+    <div class="form-group">
+        <label for="{{ form.password1.id_for_label}}">{% translate "UsersUpdatePagePassword1FieldLabel" %}</label>
+        {{ form.password1 }}
+        <small class="form-text text-muted"><ul><li>Ваш пароль должен содержать как минимум 3 символа.</li></ul></small>
+    </div>
+    <!-- Password Confirmation -->
+    <div class="form-group is-invalid">
+        <label for="{{ form.password2.id_for_label}}">{% translate "UsersUpdatePagePassword2FieldLabel" %}</label>
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+        <div class="invalid-feedback">{{ form.password2.errors }}</div>
+        {% endif %}
+        <small class="form-text text-muted">Для подтверждения введите, пожалуйста, пароль ещё раз.</small>
+    </div>
+    <!-- Submit Button -->
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="{% translate 'UserEditFormSubmitButton' %}">
+    </div>
+
+</form>
+{% endblock content %}

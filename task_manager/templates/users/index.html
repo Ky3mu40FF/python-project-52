@@ -25,9 +25,9 @@
                 <td>{{ user.full_name }}</td>
                 <td>{{ user.created_at|date:"d.m.Y H:i" }}</td>
                 <td>
-                    <a href="{% url 'users_update' id=user_id %}">Изменить</a>
+                    <a href="{% url 'users_update' id=user.id %}">{% translate "UsersListTableActionUpdate" %}</a>
                     <br>
-                    <a href="/users/2/delete/">Удалить</a></td>
+                    <a href="{% url 'users_delete' id=user.id %}">{% translate "UsersListTableActionDelete" %}</a></td>
                 </tr>
             {% endfor %}
         </tbody>

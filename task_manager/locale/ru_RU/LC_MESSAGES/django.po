@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-19 22:24+0300\n"
+"POT-Creation-Date: 2023-02-25 00:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: task_manager/settings.py:139
+#: task_manager/settings.py:141
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
-#: task_manager/settings.py:140
+#: task_manager/settings.py:142
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: task_manager/templates/index.html:8
 msgid "Welcome"
@@ -37,11 +37,16 @@ msgstr "Менеджер задач"
 msgid "NavbarUsersLink"
 msgstr "Пользователи"
 
-#: task_manager/templates/navigation.html:22
+#: task_manager/templates/navigation.html:24
+#: task_manager/templates/navigation.html:27
+msgid "NavbarLogOutLink"
+msgstr "Выйти"
+
+#: task_manager/templates/navigation.html:33
 msgid "NavbarLogInLink"
 msgstr "Войти"
 
-#: task_manager/templates/navigation.html:25
+#: task_manager/templates/navigation.html:36
 msgid "NavbarSignUpLink"
 msgstr "Зарегистрироваться"
 
@@ -68,3 +73,92 @@ msgstr "Дата создания"
 #: task_manager/templates/users/index.html:17
 msgid "UsersListTableHeaderActions"
 msgstr "Действия"
+
+#: task_manager/templates/users/index.html:28
+msgid "UsersListTableActionUpdate"
+msgstr "Изменить"
+
+#: task_manager/templates/users/index.html:30
+msgid "UsersListTableActionDelete"
+msgstr "Удалить"
+
+#: task_manager/templates/users/login.html:7
+msgid "UsersLogInPageHeader"
+msgstr "Вход"
+
+#: task_manager/templates/users/login.html:12
+msgid "UsersLogInPageUsernameFieldLabel"
+msgstr "Имя пользователя"
+
+#: task_manager/templates/users/login.html:16
+msgid "UsersLogInPagePasswordFieldLabel"
+msgstr "Пароль"
+
+#: task_manager/templates/users/login.html:20
+msgid "UserLogInFormSubmitButton"
+msgstr "Войти"
+
+#: task_manager/templates/users/register.html:7
+msgid "UsersSignUpPageHeader"
+msgstr "Регистрация"
+
+#: task_manager/templates/users/register.html:12
+msgid "UsersSignUpPageUsernameFieldLabel"
+msgstr "Имя пользователя"
+
+#: task_manager/templates/users/register.html:18
+msgid "UsersSignUpPageFirstNameFieldLabel"
+msgstr "Имя"
+
+#: task_manager/templates/users/register.html:24
+msgid "UsersSignUpPageLastNameFieldLabel"
+msgstr "Фамилия"
+
+#: task_manager/templates/users/register.html:30
+msgid "UsersSignUpPagePassword1FieldLabel"
+msgstr "Пароль"
+
+#: task_manager/templates/users/register.html:36
+msgid "UsersSignUpPagePassword2FieldLabel"
+msgstr "Подтвердите пароль"
+
+#: task_manager/templates/users/register.html:42
+msgid "UserSignUpFormSubmitButton"
+msgstr "Зарегистрироваться"
+
+#: task_manager/templates/users/update.html:8
+msgid "UsersUpdatePageHeader"
+msgstr "Изменение пользователя"
+
+#: task_manager/templates/users/update.html:15
+msgid "UsersUpdatePageUsernameFieldLabel"
+msgstr "Имя пользователя"
+
+#: task_manager/templates/users/update.html:21
+msgid "UsersUpdatePageFirstNameFieldLabel"
+msgstr "Имя"
+
+#: task_manager/templates/users/update.html:27
+msgid "UsersUpdatePageLastNameFieldLabel"
+msgstr "Фамилия"
+
+#: task_manager/templates/users/update.html:32
+msgid "UsersUpdatePagePassword1FieldLabel"
+msgstr "Пароль"
+
+#: task_manager/templates/users/update.html:38
+msgid "UsersUpdatePagePassword2FieldLabel"
+msgstr "Подтвердите пароль"
+
+#: task_manager/templates/users/update.html:47
+msgid "UserEditFormSubmitButton"
+msgstr "Изменить"
+
+#~ msgid "UsersUpdatePageConfirmPasswordFieldLabel"
+#~ msgstr "Подтверждение пароля"
+
+#~ msgid "UsersLogInPageUsernameFieldPlaceholder"
+#~ msgstr "Имя пользователя"
+
+#~ msgid "UsersLogInPagePasswordFieldPlaceholder"
+#~ msgstr "Пароль"
