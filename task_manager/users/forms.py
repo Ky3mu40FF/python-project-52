@@ -1,29 +1,36 @@
+"""task_manager.users.forms module."""
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, UsernameField
-
-from .models import User
+from django.contrib.auth.forms import (
+    AuthenticationForm,
+    UserChangeForm,
+    UserCreationForm,
+)
+from django.utils.translation import gettext_lazy as _
+from task_manager.users.models import User
 
 
 class CustomAuthenticationForm(AuthenticationForm):
+    """Custom authentication form for custom User model."""
 
     class Meta(AuthenticationForm):
         model = User
         fields = ('username',)
     
     def __init__(self, *args, **kwargs):
-        super(AuthenticationForm, self).__init__(*args, **kwargs)
+        super(CustomAuthenticationForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({'class': 'form-control'})
         self.fields['password'].widget.attrs.update({'class': 'form-control'})
 
 
 class CustomUserCreationForm(UserCreationForm):
+    """Custom creation form for custom User model."""
 
     class Meta(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name',)
     
     def __init__(self, *args, **kwargs):
-        super(UserCreationForm, self).__init__(*args, **kwargs)
+        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({'class': 'form-control'})
         self.fields['first_name'].widget.attrs.update({'class': 'form-control'})
         self.fields['last_name'].widget.attrs.update({'class': 'form-control'})
@@ -32,6 +39,7 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomUserChangeForm(UserChangeForm):
+    """Custom change form for custom User model."""
 
     password1 = forms.CharField(
         max_length=100,
@@ -47,7 +55,7 @@ class CustomUserChangeForm(UserChangeForm):
         fields = ('username', 'first_name', 'last_name',)
     
     def __init__(self, *args, **kwargs):
-        super(UserChangeForm, self).__init__(*args, **kwargs)
+        super(CustomUserChangeForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs.update({'class': 'form-control'})
         self.fields['last_name'].widget.attrs.update({'class': 'form-control'})
         self.fields['username'].widget.attrs.update({'class': 'form-control'})
@@ -60,6 +68,6 @@ class CustomUserChangeForm(UserChangeForm):
 
         if password1 != password2:
             # raise forms.ValidationError("password and confirm_password does not match")
-            self.add_error('password2', "The two password fields didn’t match.")
+            self.add_error('password2', _("The two password fields didn’t match."))
         
         return cleaned_data

@@ -15,6 +15,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
 
+from django.contrib.messages import constants as messages
 from django.utils.translation import gettext_lazy as _
 
 
@@ -38,6 +39,15 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '*',
 ]
+
+# messages tags conversion to bootstrap alert level classes
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-secondary',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 
 # Application definition

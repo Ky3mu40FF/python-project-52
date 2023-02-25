@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-25 00:40+0300\n"
+"POT-Creation-Date: 2023-02-26 00:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: task_manager/settings.py:141
+#: task_manager/settings.py:151
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/settings.py:142
+#: task_manager/settings.py:152
 msgid "English"
 msgstr "Английский"
 
@@ -49,6 +49,15 @@ msgstr "Войти"
 #: task_manager/templates/navigation.html:36
 msgid "NavbarSignUpLink"
 msgstr "Зарегистрироваться"
+
+#: task_manager/templates/users/delete.html:7
+#: task_manager/templates/users/login.html:7
+msgid "UsersLogInPageHeader"
+msgstr "Вход"
+
+#: task_manager/templates/users/delete.html:12
+msgid "UserDeleteFormSubmitButton"
+msgstr "Да, удалить"
 
 #: task_manager/templates/users/index.html:8
 msgid "UsersListPageHeader"
@@ -81,10 +90,6 @@ msgstr "Изменить"
 #: task_manager/templates/users/index.html:30
 msgid "UsersListTableActionDelete"
 msgstr "Удалить"
-
-#: task_manager/templates/users/login.html:7
-msgid "UsersLogInPageHeader"
-msgstr "Вход"
 
 #: task_manager/templates/users/login.html:12
 msgid "UsersLogInPageUsernameFieldLabel"
@@ -153,6 +158,34 @@ msgstr "Подтвердите пароль"
 #: task_manager/templates/users/update.html:47
 msgid "UserEditFormSubmitButton"
 msgstr "Изменить"
+
+#: task_manager/users/forms.py:71
+msgid "The two password fields didn’t match."
+msgstr "Пароли не совпадают."
+
+#: task_manager/users/managers.py:59
+msgid "Superuser must have is_staff=True."
+msgstr "У Суперпользователя должно быть свойство is_staff=True."
+
+#: task_manager/users/managers.py:61
+msgid "Superuser must have is_superuser=True."
+msgstr "У Суперпользователя должно быть свойство is_superuser=True."
+
+#: task_manager/users/views.py:41
+msgid "You do not have permission for this action."
+msgstr "У Вас нет прав для этого действия."
+
+#: task_manager/users/views.py:56
+msgid "You are not authorized. Please Log In."
+msgstr "Вы не авторизованы. Войдите в свою учётную запись."
+
+#: task_manager/users/views.py:212
+msgid "Successfully Logged In!"
+msgstr "Вы успешно вошли в свою учётную запись!"
+
+#: task_manager/users/views.py:227
+msgid "Successfully Logged Out!"
+msgstr "Вы успешно вышли из учётной записи!"
 
 #~ msgid "UsersUpdatePageConfirmPasswordFieldLabel"
 #~ msgstr "Подтверждение пароля"
