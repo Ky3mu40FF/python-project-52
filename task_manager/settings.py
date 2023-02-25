@@ -40,6 +40,10 @@ ALLOWED_HOSTS = [
     '*',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    os.getenv('CSRF_TRUSTED_ORIGINS_PUBLIC'),
+]
+
 # messages tags conversion to bootstrap alert level classes
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-secondary',
