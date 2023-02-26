@@ -5,11 +5,13 @@
 
 {% block content %}
 <h1>{% translate "UsersLogInPageHeader" %}</h1>
-<p>Are you shure you want to delete {{ user_full_name }}?</p>
+
+<p>{% blocktrans %}Are you sure you want to delete user {{ user_full_name }}?{% endblocktrans %}</p>
+
 <form action="{% url 'users_delete' id=user_id %}" method="post">
     {% csrf_token %}
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="{% translate 'UserDeleteFormSubmitButton' %}">
+        <input class="btn btn-danger" type="submit" value="{% translate 'UserDeleteFormSubmitButton' %}">
     </div>
 </form>
 {% endblock content %}

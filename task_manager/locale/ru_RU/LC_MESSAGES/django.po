@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-26 16:36+0300\n"
+"POT-Creation-Date: 2023-02-26 17:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,7 +74,7 @@ msgstr "Создание статуса"
 msgid "StatusesCreatePageNameFieldLabel"
 msgstr "Название"
 
-#: task_manager/templates/statuses/create.html:16
+#: task_manager/templates/statuses/create.html:18
 msgid "StatusesCreateFormSubmitButton"
 msgstr "Создать"
 
@@ -83,6 +83,7 @@ msgid "StatusesDeleteFormPageHeader"
 msgstr "Удаление статуса"
 
 #: task_manager/templates/statuses/delete.html:9
+#, python-format
 msgid "Are you sure you want to delete the status %(status_name)s?"
 msgstr "Вы уверены, что хотите удалить статус %(status_name)s?"
 
@@ -130,7 +131,7 @@ msgstr "Изменение статуса"
 msgid "StatusesUpdatePageNameFieldLabel"
 msgstr "Название"
 
-#: task_manager/templates/statuses/update.html:17
+#: task_manager/templates/statuses/update.html:20
 msgid "StatusesUpdateFormSubmitButton"
 msgstr "Изменить"
 
@@ -139,7 +140,11 @@ msgstr "Изменить"
 msgid "UsersLogInPageHeader"
 msgstr "Вход"
 
-#: task_manager/templates/users/delete.html:12
+#: task_manager/templates/users/delete.html:9
+msgid "Are you sure you want to delete user %(user_full_name)s?"
+msgstr "Вы уверены, что хотите удалить пользователя %(status_name)s?"
+
+#: task_manager/templates/users/delete.html:14
 msgid "UserDeleteFormSubmitButton"
 msgstr "Да, удалить"
 
