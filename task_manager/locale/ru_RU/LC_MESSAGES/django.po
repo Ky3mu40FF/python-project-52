@@ -142,7 +142,7 @@ msgstr "Вход"
 
 #: task_manager/templates/users/delete.html:9
 msgid "Are you sure you want to delete user %(user_full_name)s?"
-msgstr "Вы уверены, что хотите удалить пользователя %(status_name)s?"
+msgstr "Вы уверены, что хотите удалить пользователя %(user_full_name)s?"
 
 #: task_manager/templates/users/delete.html:14
 msgid "UserDeleteFormSubmitButton"
