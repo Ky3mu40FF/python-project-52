@@ -7,10 +7,10 @@ from task_manager.users.managers import CustomUserManager
 class User(AbstractBaseUser, PermissionsMixin):
     """User model inherited from AbstractBaseUser to customize."""
 
-    username = models.CharField(max_length=100, unique=True)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
+    username = models.CharField(max_length=100, unique=True, null=False, blank=False)
+    first_name = models.CharField(max_length=100, null=False, blank=False)
+    last_name = models.CharField(max_length=100, null=False, blank=False)
+    password = models.CharField(max_length=100, null=False, blank=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
