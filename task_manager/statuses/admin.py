@@ -17,4 +17,4 @@ class StatusAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
-admin.site.register(Status)
+admin.site.register(Status, StatusAdmin)
