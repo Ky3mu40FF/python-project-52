@@ -17,4 +17,4 @@ class TaskAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description', 'status', 'author', 'executor')
 
 
-admin.site.register(Task)
+admin.site.register(Task, TaskAdmin)

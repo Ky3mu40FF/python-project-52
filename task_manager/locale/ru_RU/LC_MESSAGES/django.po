@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-26 17:03+0300\n"
+"POT-Creation-Date: 2023-02-26 22:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: task_manager/settings.py:156
+#: task_manager/settings.py:157
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/settings.py:157
+#: task_manager/settings.py:158
 msgid "English"
 msgstr "Английский"
 
@@ -36,6 +36,26 @@ msgstr "Обновление статуса прошло успешно!"
 #: task_manager/statuses/views.py:123
 msgid "The status is successfully deleted!"
 msgstr "Удаление статуса прошло успешно!"
+
+#: task_manager/tasks/forms.py:23 task_manager/tasks/forms.py:52
+msgid "Name"
+msgstr "Название"
+
+#: task_manager/tasks/forms.py:24 task_manager/tasks/forms.py:53
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/tasks/forms.py:25 task_manager/tasks/forms.py:54
+msgid "Status"
+msgstr "Статус"
+
+#: task_manager/tasks/forms.py:26 task_manager/tasks/forms.py:55
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: task_manager/tasks/forms.py:27 task_manager/tasks/forms.py:56
+msgid "Tags"
+msgstr "Метки"
 
 #: task_manager/templates/index.html:8
 msgid "Welcome"
@@ -53,7 +73,10 @@ msgstr "Пользователи"
 msgid "NavbarStatusesLink"
 msgstr "Статусы"
 
-#: task_manager/templates/navigation.html:29
+#: task_manager/templates/navigation.html:24
+msgid "NavbarTasksLink"
+msgstr "Задачи"
+
 #: task_manager/templates/navigation.html:32
 msgid "NavbarLogOutLink"
 msgstr "Выйти"
@@ -135,12 +158,65 @@ msgstr "Название"
 msgid "StatusesUpdateFormSubmitButton"
 msgstr "Изменить"
 
+#: task_manager/templates/tasks/create.html:7
+msgid "TasksCreatePageHeader"
+msgstr "Создание задачи"
+
+#: task_manager/templates/tasks/create.html:40
+msgid "TasksCreateFormSubmitButton"
+msgstr "Создать"
+
+#: task_manager/templates/tasks/index.html:8
+msgid "TasksListPageHeader"
+msgstr "Задачи"
+
+#: task_manager/templates/tasks/index.html:10
+msgid "TasksListPageCreateTaskLink"
+msgstr "Создать задачу"
+
+#: task_manager/templates/tasks/index.html:16
+msgid "TasksListTableHeaderID"
+msgstr "ID"
+
+#: task_manager/templates/tasks/index.html:17
+msgid "TasksListTableHeaderName"
+msgstr "Название"
+
+#: task_manager/templates/tasks/index.html:18
+msgid "TasksListTableHeaderStatus"
+msgstr "Статус"
+
+#: task_manager/templates/tasks/index.html:19
+msgid "TasksListTableHeaderAuthor"
+msgstr "Автор"
+
+#: task_manager/templates/tasks/index.html:20
+msgid "TasksListTableHeaderExecutor"
+msgstr "Исполнитель"
+
+#: task_manager/templates/tasks/index.html:21
+msgid "TasksListTableHeaderCreatedAt"
+msgstr "Дата создания"
+
+#: task_manager/templates/tasks/index.html:22
+msgid "TasksListTableHeaderActions"
+msgstr "Действия"
+
+#: task_manager/templates/tasks/index.html:35
+msgid "TasksListTableActionUpdate"
+msgstr "Изменить"
+
+#: task_manager/templates/tasks/index.html:37
+msgid "TasksListTableActionDelete"
+msgstr "Удалить"
+
 #: task_manager/templates/users/delete.html:7
 #: task_manager/templates/users/login.html:7
 msgid "UsersLogInPageHeader"
 msgstr "Вход"
 
 #: task_manager/templates/users/delete.html:9
+#, python-format
 msgid "Are you sure you want to delete user %(user_full_name)s?"
 msgstr "Вы уверены, что хотите удалить пользователя %(user_full_name)s?"
 

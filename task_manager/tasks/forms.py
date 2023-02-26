@@ -19,6 +19,13 @@ class TaskCreateForm(ModelForm):
             'executor',
             # 'tags',
         )
+        labels = {
+            'name': _('Name'),
+            'description': _('Description'),
+            'status': _('Status'),
+            'executor': _('Executor'),
+            'tags': _('Tags'),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -41,6 +48,13 @@ class TaskUpdateForm(ModelForm):
             'executor',
             # 'tags',
         )
+        labels = {
+            'name': _('Name'),
+            'description': _('Description'),
+            'status': _('Status'),
+            'executor': _('Executor'),
+            'tags': _('Tags'),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

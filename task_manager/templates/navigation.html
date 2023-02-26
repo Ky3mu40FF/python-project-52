@@ -20,6 +20,9 @@
       <li class="nav-item ">
         <a class="nav-link" href="{% url 'statuses' %}">{% translate "NavbarStatusesLink" %}</a>
       </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'tasks' %}">{% translate "NavbarTasksLink" %}</a>
+      </li>
       {% endif %}
     </ul>
     {% if request.user.is_authenticated %}
@@ -28,9 +31,6 @@
         {% csrf_token %}
         <input class="btn nav-link" type="submit" value="{% translate "NavbarLogOutLink" %}">
       </form>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="{% url 'users_logout' %}">{% translate "NavbarLogOutLink" %}</a>
-      </li> -->
     </ul>
     {% else %}
     <ul class="navbar-nav">
