@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-26 00:29+0300\n"
+"POT-Creation-Date: 2023-02-26 16:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: task_manager/settings.py:151
+#: task_manager/settings.py:156
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/settings.py:152
+#: task_manager/settings.py:157
 msgid "English"
 msgstr "Английский"
+
+#: task_manager/statuses/views.py:51
+msgid "The status is successfully created!"
+msgstr "Статус успешно создан!"
+
+#: task_manager/statuses/views.py:87
+msgid "The status is successfully updated!"
+msgstr "Обновление статуса прошло успешно!"
+
+#: task_manager/statuses/views.py:123
+msgid "The status is successfully deleted!"
+msgstr "Удаление статуса прошло успешно!"
 
 #: task_manager/templates/index.html:8
 msgid "Welcome"
@@ -37,18 +49,90 @@ msgstr "Менеджер задач"
 msgid "NavbarUsersLink"
 msgstr "Пользователи"
 
-#: task_manager/templates/navigation.html:24
-#: task_manager/templates/navigation.html:27
+#: task_manager/templates/navigation.html:21
+msgid "NavbarStatusesLink"
+msgstr "Статусы"
+
+#: task_manager/templates/navigation.html:29
+#: task_manager/templates/navigation.html:32
 msgid "NavbarLogOutLink"
 msgstr "Выйти"
 
-#: task_manager/templates/navigation.html:33
+#: task_manager/templates/navigation.html:38
 msgid "NavbarLogInLink"
 msgstr "Войти"
 
-#: task_manager/templates/navigation.html:36
+#: task_manager/templates/navigation.html:41
 msgid "NavbarSignUpLink"
 msgstr "Зарегистрироваться"
+
+#: task_manager/templates/statuses/create.html:7
+msgid "StatusesCreatePageHeader"
+msgstr "Создание статуса"
+
+#: task_manager/templates/statuses/create.html:11
+msgid "StatusesCreatePageNameFieldLabel"
+msgstr "Название"
+
+#: task_manager/templates/statuses/create.html:16
+msgid "StatusesCreateFormSubmitButton"
+msgstr "Создать"
+
+#: task_manager/templates/statuses/delete.html:7
+msgid "StatusesDeleteFormPageHeader"
+msgstr "Удаление статуса"
+
+#: task_manager/templates/statuses/delete.html:9
+msgid "Are you sure you want to delete the status %(status_name)s?"
+msgstr "Вы уверены, что хотите удалить статус %(status_name)s?"
+
+#: task_manager/templates/statuses/delete.html:13
+msgid "StatusesDeleteFormSubmitButton"
+msgstr "Да, удалить"
+
+#: task_manager/templates/statuses/index.html:7
+msgid "StatusesListPageHeader"
+msgstr "Статусы"
+
+#: task_manager/templates/statuses/index.html:9
+msgid "StatusesListPageCreateStatusLink"
+msgstr "Создать статус"
+
+#: task_manager/templates/statuses/index.html:14
+msgid "StatusesListTableHeaderID"
+msgstr "ID"
+
+#: task_manager/templates/statuses/index.html:15
+msgid "StatusesListTableHeaderName"
+msgstr "Название"
+
+#: task_manager/templates/statuses/index.html:16
+msgid "StatusesListTableHeaderCreatedAt"
+msgstr "Дата создания"
+
+#: task_manager/templates/statuses/index.html:17
+msgid "StatusesListTableHeaderActions"
+msgstr "Действия"
+
+#: task_manager/templates/statuses/index.html:27
+msgid "StatusesListTableActionUpdate"
+msgstr "Изменить"
+
+#: task_manager/templates/statuses/index.html:29
+msgid "StatusesListTableActionDelete"
+msgstr "Удалить"
+
+#: task_manager/templates/statuses/update.html:8
+msgid "StatusesUpdatePageHeader"
+msgstr "Изменение статуса"
+
+#: task_manager/templates/statuses/update.html:13
+msgid "StatusesUpdatePageNameFieldLabel"
+msgstr "Название"
+
+#: task_manager/templates/statuses/update.html:17
+msgid "StatusesUpdateFormSubmitButton"
+msgstr "Изменить"
 
 #: task_manager/templates/users/delete.html:7
 #: task_manager/templates/users/login.html:7
@@ -186,6 +270,9 @@ msgstr "Вы успешно вошли в свою учётную запись!"
 #: task_manager/users/views.py:227
 msgid "Successfully Logged Out!"
 msgstr "Вы успешно вышли из учётной записи!"
+
+#~ msgid "StatusesDeleteFormPageConfirmationText"
+#~ msgstr "Вы уверены, что хотите удалить статус {{ status.name }}?"
 
 #~ msgid "UsersUpdatePageConfirmPasswordFieldLabel"
 #~ msgstr "Подтверждение пароля"

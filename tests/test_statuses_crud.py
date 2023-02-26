@@ -17,9 +17,9 @@ def test_two_statuses_same_name_integrity_error(status1) -> None:
         status2 = Status.objects.create(name=status1.name)
 
 
-def test_empty_name(db) -> None:
+def test_null_name(db) -> None:
     with pytest.raises(IntegrityError):
-        status = Status.objects.create()
+        status = Status.objects.create(name=None)
 
 
 def test_update_status(status1) -> None:

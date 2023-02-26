@@ -16,6 +16,11 @@
       <li class="nav-item ">
         <a class="nav-link" href="{% url 'users' %}">{% translate "NavbarUsersLink" %}</a>
       </li>
+      {% if request.user.is_authenticated %}
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'statuses' %}">{% translate "NavbarStatusesLink" %}</a>
+      </li>
+      {% endif %}
     </ul>
     {% if request.user.is_authenticated %}
     <ul class="navbar-nav">

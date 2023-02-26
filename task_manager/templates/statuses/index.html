@@ -1,0 +1,36 @@
+{% extends 'layout.html'%}
+{% load bootstrap4 %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block content %}
+<h1>{% translate "StatusesListPageHeader" %}</h1>
+
+<a class="nav-link" href="{% url 'statuses_create' %}">{% translate "StatusesListPageCreateStatusLink" %}</a>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>{% translate "StatusesListTableHeaderID" %}</th>
+                <th>{% translate "StatusesListTableHeaderName" %}</th>
+                <th>{% translate "StatusesListTableHeaderCreatedAt" %}</th>
+                <th>{% translate "StatusesListTableHeaderActions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for status in statuses %}
+            <tr>
+                <td>{{ status.id }}</td>
+                <td>{{ status.name }}</td>
+                <td>{{ status.created_at }}</td>
+                <td>
+                    <a href="{% url 'statuses_update' id=status.id %}">{% translate "StatusesListTableActionUpdate" %}</a>
+                    <br>
+                    <a href="{% url 'statuses_delete' id=status.id %}">{% translate "StatusesListTableActionDelete" %}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
