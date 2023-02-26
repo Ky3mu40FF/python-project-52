@@ -11,3 +11,6 @@ class Status(models.Model):
         null=False,
     )
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __init__(self):
+        return self.name
