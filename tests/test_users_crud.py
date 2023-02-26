@@ -1,10 +1,9 @@
 from django.db.utils import IntegrityError
 import pytest
-
 from task_manager.users.models import User
 
 
-def test_should_create_simple_user(simple_user_one) -> None:
+def test_should_create_simple_user(db) -> None:
     user = User.objects.create_user(
         username="TestUser",
         password="TestPassword",

@@ -1,5 +1,5 @@
 import pytest
-
+from task_manager.statuses.models import Status
 from task_manager.users.models import User
 
 
@@ -39,3 +39,13 @@ def super_user_two(db) -> User:
         first_name='Кристофер',
         last_name='Нолан',
     )
+
+
+@pytest.fixture
+def status1(db) -> Status:
+    return Status.objects.create(name='Новая')
+
+
+@pytest.fixture
+def status2(db) -> Status:
+    return Status.objects.create(name='В работе')
