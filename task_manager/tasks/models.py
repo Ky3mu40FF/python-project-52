@@ -14,7 +14,7 @@ class Task(models.Model):
         on_delete=models.PROTECT,
         related_name='created_tasks',
         null=False,
-        blank=False,
+        blank=True,
     )
     executor = models.ForeignKey(
         User,

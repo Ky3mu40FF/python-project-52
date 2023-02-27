@@ -16,6 +16,7 @@ class TaskCreateForm(ModelForm):
             'name',
             'description',
             'status',
+            'author',
             'executor',
             # 'tags',
         )
@@ -23,6 +24,7 @@ class TaskCreateForm(ModelForm):
             'name': _('Name'),
             'description': _('Description'),
             'status': _('Status'),
+            'author': _('Author'),
             'executor': _('Executor'),
             'tags': _('Tags'),
         }

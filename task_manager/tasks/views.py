@@ -5,6 +5,10 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy as _
 from django.views import View
+from django.views.generic import (
+    CreateView, DeleteView, DetailView, ListView,
+    UpdateView,
+)
 from task_manager.tasks.forms import (
     TaskCreateForm,
     TaskUpdateForm,
@@ -12,7 +16,7 @@ from task_manager.tasks.forms import (
 from task_manager.tasks.models import Task
 
 
-class TestUserLoggedInAndOwnership(AccessMixin):
+class TestUserLoggedInAndOwnershipMixin(AccessMixin):
     """Custom mixin to check user permissions.
 
     Check if user accessing his own resources
@@ -56,7 +60,7 @@ class TestUserLoggedInAndOwnership(AccessMixin):
         return redirect('users_login')
 
 
-class IndexView(LoginRequiredMixin, View):
+class IndexView(LoginRequiredMixin, ListView):
     """Display list of all Task model instances (Authorized only)."""
 
     def get(self, request, *args, **kwargs) -> HttpResponse:
@@ -67,7 +71,6 @@ class IndexView(LoginRequiredMixin, View):
         """
         tasks = Task.objects.select_related('status', 'author', 'executor').only(
             'name',
-            'description',
             'status__name',
             'author__first_name',
             'author__last_name',
@@ -79,26 +82,128 @@ class IndexView(LoginRequiredMixin, View):
         })
 
 
-class TaskDetailsView(LoginRequiredMixin, View):
+class TaskDetailsView(LoginRequiredMixin, DetailView):
     """Display Task model instance details (Authorized only)."""
 
-    pass
+    def get(self, request, *args, **kwargs):
+        """Render page with details of Task model instance.
+
+        Returns:
+            Render page with details of Task model instance.
+        """
+        task_id = kwargs.get('id')
+        task = Task.objects.select_related(
+            'status',
+            'author',
+            'executor'
+        ).only(
+            'name',
+            'description',
+            'status__name',
+            'author__first_name',
+            'author__last_name',
+            'executor__first_name',
+            'executor__last_name',
+        ).get(id=task_id)
+        return render(request, 'tasks/details.html', {'task': task})
 
 
-class TaskCreateFormView(LoginRequiredMixin, View):
+class TaskCreateFormView(LoginRequiredMixin, CreateView):
     """Display creation form of Task model instance (Authorized only)."""
 
-    pass
+    def get(self, request, *args, **kwargs):
+        """Render page with task creation form.
+
+        Returns:
+            Render page with task creation form.
+        """
+        form = TaskCreateForm()
+        return render(request, 'tasks/create.html', {'form': form})
+    
+    def post(self, request, *args, **kwargs):
+        """Create new task.
+        
+        Returns:
+            Redirect tp tasks list page
+            or render page with task creation form with added errors.
+        """
+        form = TaskCreateForm(data=request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.author_id = request.user.id
+            task.save()
+            messages.success(request, _('The task is successfully created!'))
+            return redirect('tasks')
+        for field in form.errors:
+            if form[field].field.widget.attrs.get('classs', None):
+                form[field].field.widget.attrs['class'] += ' is-invalid'
+        return render(request, 'tasks/create.html', {'form': form})
 
 
-class TaskUpdateFormView(LoginRequiredMixin, View):
+class TaskUpdateFormView(LoginRequiredMixin, UpdateView):
     """Display updating form of Status model instance (Authorized only)."""
 
-    pass
+    def get(self, request, *args, **kwargs):
+        """Render page with task update form.
+        
+        Returns:
+            Render page with status update form.
+        """
+        task_id = kwargs.get('id')
+        task = Task.objects.get(id=task_id)
+        form = TaskUpdateForm(instance=task)
+        return render(request, 'tasks/update.html', {
+            'task_id': task_id,
+            'form': form,
+        })
+    
+    def post(self, request, *args, **kwargs):
+        """Update selected task.
+        
+        Returns:
+            Redirect to tasks list page if update was successful
+            or render page with task update form with added errors otherwise.
+        """
+        task_id = kwargs.get('id')
+        task = Task.objects.get(id=task_id)
+        form = TaskUpdateForm(data=request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _('The task is successfully updated!'))
+            return redirect('tasks')
+        for field in form.errors:
+            form[field].field.widget.attrs['class'] += ' is-invalid'
+        return render(request, 'tasks/update.html', {
+            'task_id': task_id,
+            'form': form,
+        })
 
 
-class TaskDeleteFormView(TestUserLoggedInAndOwnership, View):
+class TaskDeleteFormView(TestUserLoggedInAndOwnershipMixin, DeleteView):
     """Display deletion form of Status model instance (Only by author)."""
 
-    pass
+    def get(self, request, *args, **kwargs):
+        """Render page with task deletion form.
+        
+        Returns:
+            Render page with status deletion form.
+        """
+        task_id = kwargs.get('id')
+        task = Task.objects.get(id=task_id)
+        return render(request, 'tasks/delete.html', {
+            'task_id': task_id,
+            'task_name': task.name,
+        })
 
+    def post(self, request, *args, **kwargs):
+        """Delete selected task.
+        
+        Returns:
+            Redirect to tasks list page.
+        """
+        task_id = kwargs.get('id')
+        task = Task.objects.get(id=task_id)
+        if task:
+            task.delete()
+            messages.success(request, _('The task is successfully deleted!'))
+            return redirect('tasks')
