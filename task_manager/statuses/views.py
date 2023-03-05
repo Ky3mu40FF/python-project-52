@@ -119,6 +119,12 @@ class StatusDeleteFormView(LoginRequiredMixin, View):
         status_id = kwargs.get('id')
         status = Status.objects.get(id=status_id)
         if status:
+            if status.task_set:
+                messages.error(
+                    self.request,
+                    _('You cannot delete status associated with tasks.'),
+                )
+                return redirect('statuses')
             status.delete()
             messages.success(request, _('The status is successfully deleted!'))
             return redirect('statuses')
