@@ -37,9 +37,10 @@ class TestUserLoggedInAndOwnershipMixin(AccessMixin):
         if not request.user.is_authenticated:
             # This will redirect to the login view
             return self.handle_no_permission()
+        
         task_id = kwargs.get('id')
-        tasks_author_id = Task.objects.select_related('author').only('author__id').get(id=task_id).author_id
-        if self.request.user.id != tasks_author_id:
+        task_author_id = Task.objects.select_related('author').only('author__id').get(id=task_id).author_id
+        if self.request.user.id != task_author_id:
             messages.error(
                 self.request,
                 _('You do not have permission for this action.'),
@@ -137,7 +138,7 @@ class TaskCreateFormView(LoginRequiredMixin, CreateView):
             messages.success(request, _('The task is successfully created!'))
             return redirect('tasks')
         for field in form.errors:
-            if form[field].field.widget.attrs.get('classs', None):
+            if form[field].field.widget.attrs.get('class', None):
                 form[field].field.widget.attrs['class'] += ' is-invalid'
         return render(request, 'tasks/create.html', {'form': form})
 
