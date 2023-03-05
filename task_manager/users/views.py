@@ -176,6 +176,12 @@ class UserDeleteFormView(TestUserLoggedInAndOwnership, View):
         user_id = kwargs.get('id')
         user = User.objects.get(id=user_id)
         if user:
+            if user.created_tasks or user.executing_tasks:
+                messages.error(
+                    self.request,
+                    _('You cannot delete user associated with tasks.'),
+                )
+                return redirect('users')
             user.delete()
             return redirect('homepage')
 
