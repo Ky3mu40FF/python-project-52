@@ -37,7 +37,9 @@ class TestUserLoggedInAndOwnershipMixin(AccessMixin):
         if not request.user.is_authenticated:
             # This will redirect to the login view
             return self.handle_no_permission()
-        if self.request.user.id != kwargs.get('author_id'):
+        task_id = kwargs.get('id')
+        tasks_author_id = Task.objects.select_related('author').only('author__id').get(id=task_id).author_id
+        if self.request.user.id != tasks_author_id:
             messages.error(
                 self.request,
                 _('You do not have permission for this action.'),
