@@ -27,3 +27,6 @@ class User(AbstractBaseUser, PermissionsMixin):
             (str): User's full name (joined first name and last name).
         """
         return ' '.join((self.first_name, self.last_name))
+    
+    def __str__(self):
+        return self.full_name
