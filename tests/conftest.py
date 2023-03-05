@@ -1,28 +1,41 @@
 import pytest
 from task_manager.statuses.models import Status
+from task_manager.tasks.models import Task
 from task_manager.users.models import User
 
 
 @pytest.fixture
-def simple_user_one(db) -> User:
+def simple_user_1(db) -> User:
     return User.objects.create_user(
-        username='simple_user_one',
-        password='simple_password',
+        username='Zombie_Slayer',
+        password='NoThanksBro',
         first_name='Leon',
         last_name='Kennedy',
     )
 
 
 @pytest.fixture
-def simple_user_two(db) -> User:
+def simple_user_2(db) -> User:
     return User.objects.create_user(
-        username='Simple_User_Two',
-        password='TestPassword',
+        username='Rock_Slayer',
+        password='RedfieldsBloodline',
+        first_name='Chris',
+        last_name='Redfield',
     )
 
 
 @pytest.fixture
-def super_user_one(db) -> User:
+def simple_user_3(db) -> User:
+    return User.objects.create_user(
+        username='Whisker',
+        password='GlobalSaturation',
+        first_name='Albert',
+        last_name='Wesker',
+    )
+
+
+@pytest.fixture
+def super_user_1(db) -> User:
     return User.objects.create_user(
         username='TestSuperUserOne',
         password='TestPassword',
@@ -32,7 +45,7 @@ def super_user_one(db) -> User:
 
 
 @pytest.fixture
-def super_user_two(db) -> User:
+def super_user_2(db) -> User:
     return User.objects.create_user(
         username='TestSuperUser-Two',
         password='TestPassword',
@@ -42,10 +55,37 @@ def super_user_two(db) -> User:
 
 
 @pytest.fixture
-def status1(db) -> Status:
-    return Status.objects.create(name='Новая')
+def status_1(db) -> Status:
+    return Status.objects.create(name='New')
 
 
 @pytest.fixture
-def status2(db) -> Status:
-    return Status.objects.create(name='В работе')
+def status_2(db) -> Status:
+    return Status.objects.create(name='In Progress')
+
+
+@pytest.fixture
+def status_3_not_used(db) -> Status:
+    return Status.objects.create(name='Not in use')
+
+
+@pytest.fixture
+def task_1(db, simple_user_1, status_1) -> Task:
+    return Task.objects.create(
+        name='Спасти Эшли',
+        description='Её нашли в испанской деревушке. Нужно её найти.',
+        status=status_1,
+        author=simple_user_1,
+        executor=simple_user_1,
+    )
+
+
+@pytest.fixture
+def task_2(db, simple_user_1, simple_user_2, status_2) -> Task:
+    return Task.objects.create(
+        name='Continue Redfield Bloodline',
+        description='You want my sister? You can have her! I left everything you need together at my place Now you just have to *@%^ her',
+        status=status_2,
+        author=simple_user_1,
+        executor=simple_user_2,
+    )
