@@ -44,7 +44,7 @@ def test_delete_status(status_1) -> None:
     assert not Status.objects.filter(id=status_1_id).exists()
 
 
-def test_prevent_from_deleting_user_associated_with_tasks(
+def test_prevent_from_deleting_status_associated_with_tasks(
     status_1: Status,
     status_3_not_used: Status,
     task_1: Task,
