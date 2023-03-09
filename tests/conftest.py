@@ -1,4 +1,5 @@
 import pytest
+from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
 from task_manager.users.models import User
@@ -70,22 +71,49 @@ def status_3_not_used(db) -> Status:
 
 
 @pytest.fixture
-def task_1(db, simple_user_1, status_1) -> Task:
-    return Task.objects.create(
+def label_1(db) -> Label:
+    return Label.objects.create(
+        name='B.O.W.',
+    )
+
+
+@pytest.fixture
+def label_2(db) -> Label:
+    return Label.objects.create(
+        name='Bloodline',
+    )
+
+
+@pytest.fixture
+def label_3_not_used(db) -> Label:
+    return Label.objects.create(
+        name='Not Used',
+    )
+
+
+@pytest.fixture
+def task_1(db, simple_user_1, status_1, label_1) -> Task:
+    task = Task.objects.create(
         name='Спасти Эшли',
         description='Её нашли в испанской деревушке. Нужно её найти.',
         status=status_1,
         author=simple_user_1,
         executor=simple_user_1,
     )
+    task.labels.add(label_1)
+    task.save()
+    return task
 
 
 @pytest.fixture
-def task_2(db, simple_user_1, simple_user_2, status_2) -> Task:
-    return Task.objects.create(
+def task_2(db, simple_user_1, simple_user_2, status_2, label_1, label_2) -> Task:
+    task = Task.objects.create(
         name='Continue Redfield Bloodline',
         description='You want my sister? You can have her! I left everything you need together at my place Now you just have to *@%^ her',
         status=status_2,
         author=simple_user_1,
         executor=simple_user_2,
     )
+    task.labels.add(label_1, label_2)
+    task.save()
+    return task

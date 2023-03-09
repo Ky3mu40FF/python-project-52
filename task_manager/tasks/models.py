@@ -1,6 +1,7 @@
 """task_manager - tasks app - models module."""
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 from task_manager.users.models import User
 
@@ -42,8 +43,22 @@ class Task(models.Model):
         null=True,
         blank=True,
     )
-    # tags = models.ManyToManyField(Tag)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('Created at'),)
+    labels = models.ManyToManyField(
+        Label,
+        verbose_name=_('Labels'),
+        null=True,
+        blank=True,
+        through='TaskLabel',
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name=_('Created at'),
+    )
 
     def __str__(self):
         return self.name
+
+
+class TaskLabel(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.PROTECT)
