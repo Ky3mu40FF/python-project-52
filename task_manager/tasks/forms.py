@@ -18,7 +18,7 @@ class TaskCreateForm(ModelForm):
             'status',
             'author',
             'executor',
-            # 'tags',
+            'labels',
         )
         labels = {
             'name': _('Name'),
@@ -26,7 +26,7 @@ class TaskCreateForm(ModelForm):
             'status': _('Status'),
             'author': _('Author'),
             'executor': _('Executor'),
-            'tags': _('Tags'),
+            'labels': _('Labels'),
         }
 
     def __init__(self, *args, **kwargs):
@@ -35,7 +35,7 @@ class TaskCreateForm(ModelForm):
         self.fields['description'].widget.attrs.update({'class': 'form-control'})
         self.fields['status'].widget.attrs.update({'class': 'form-control'})
         self.fields['executor'].widget.attrs.update({'class': 'form-control'})
-        # self.fields['tags'].widget.attrs.update({'class': 'form-control'})
+        self.fields['labels'].widget.attrs.update({'class': 'form-control'})
 
 
 class TaskUpdateForm(ModelForm):
@@ -48,14 +48,14 @@ class TaskUpdateForm(ModelForm):
             'description',
             'status',
             'executor',
-            # 'tags',
+            'labels',
         )
         labels = {
             'name': _('Name'),
             'description': _('Description'),
             'status': _('Status'),
             'executor': _('Executor'),
-            'tags': _('Tags'),
+            'labels': _('Labels'),
         }
 
     def __init__(self, *args, **kwargs):
@@ -64,4 +64,4 @@ class TaskUpdateForm(ModelForm):
         self.fields['description'].widget.attrs.update({'class': 'form-control'})
         self.fields['status'].widget.attrs.update({'class': 'form-control'})
         self.fields['executor'].widget.attrs.update({'class': 'form-control'})
-        # self.fields['tags'].widget.attrs.update({'class': 'form-control'})
+        self.fields['labels'].widget.attrs.update({'class': 'form-control'})

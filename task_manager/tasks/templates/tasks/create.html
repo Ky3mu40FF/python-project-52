@@ -37,6 +37,13 @@
         {% endif %}
     </div>
     <div class="form-group">
+        {{ form.labels.label }}
+        {{ form.labels }}
+        {% if form.labels.errors %}
+        <div class="invalid-feedback">{{ form.labels.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="form-group">
         <input class="btn btn-primary" type="submit" value="{% translate 'TasksCreateFormSubmitButton' %}">
     </div>
 </form>

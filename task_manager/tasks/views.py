@@ -107,6 +107,7 @@ class TaskDetailsView(LoginRequiredMixin, DetailView):
             'author__last_name',
             'executor__first_name',
             'executor__last_name',
+            'labels__name',
         ).get(id=task_id)
         return render(request, 'tasks/details.html', {'task': task})
 
