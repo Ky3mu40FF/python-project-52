@@ -9,6 +9,8 @@ from django.views.generic import (
     CreateView, DeleteView, DetailView, ListView,
     UpdateView,
 )
+from django_filters.views import FilterView
+from task_manager.tasks.filter import TaskFilter
 from task_manager.tasks.forms import (
     TaskCreateForm,
     TaskUpdateForm,
@@ -63,7 +65,7 @@ class TestUserLoggedInAndOwnershipMixin(AccessMixin):
         return redirect('users_login')
 
 
-class IndexView(LoginRequiredMixin, ListView):
+class IndexView(LoginRequiredMixin, FilterView):
     """Display list of all Task model instances (Authorized only)."""
 
     def get(self, request, *args, **kwargs) -> HttpResponse:
@@ -80,8 +82,9 @@ class IndexView(LoginRequiredMixin, ListView):
             'executor__first_name',
             'executor__last_name',
         )
+        filter = TaskFilter(request=request, data=request.GET, queryset=tasks)
         return render(request, 'tasks/index.html', context={
-            'tasks': tasks,
+            'filter': filter,
         })
 
 

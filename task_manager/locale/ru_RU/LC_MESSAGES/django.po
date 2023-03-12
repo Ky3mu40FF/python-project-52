@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-12 15:50+0300\n"
+"POT-Creation-Date: 2023-03-12 23:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,11 +102,11 @@ msgstr "Нельзя удалить связанную с задачами ме�
 msgid "The label is successfully deleted!"
 msgstr "Удаление метки прошло успешно!"
 
-#: task_manager/settings.py:158
+#: task_manager/settings.py:159
 msgid "Russian"
 msgstr "Русский"
 
-#: task_manager/settings.py:159
+#: task_manager/settings.py:160
 msgid "English"
 msgstr "Английский"
 
@@ -194,6 +194,22 @@ msgstr "Нельзя удалить связанный с задачами ст�
 #: task_manager/statuses/views.py:129
 msgid "The status is successfully deleted!"
 msgstr "Удаление статуса прошло успешно!"
+
+#: task_manager/tasks/filter.py:15
+msgid "ExecutorFilterFieldLabel"
+msgstr "Исполнитель"
+
+#: task_manager/tasks/filter.py:20
+msgid "StatusFilterFieldLabel"
+msgstr "Статус"
+
+#: task_manager/tasks/filter.py:25
+msgid "LabelFilterFieldLabel"
+msgstr "Метка"
+
+#: task_manager/tasks/filter.py:30
+msgid "OwnedByUserFilterFieldLabel"
+msgstr "Только свои задачи"
 
 #: task_manager/tasks/forms.py:24 task_manager/tasks/forms.py:54
 msgid "Name"
@@ -292,39 +308,43 @@ msgstr "Задачи"
 msgid "TasksListPageCreateTaskLink"
 msgstr "Создать задачу"
 
-#: task_manager/tasks/templates/tasks/index.html:16
+#: task_manager/tasks/templates/tasks/index.html:19
+msgid "TasksFilterFormSubmitButton"
+msgstr "Показать"
+
+#: task_manager/tasks/templates/tasks/index.html:28
 msgid "TasksListTableHeaderID"
 msgstr "ID"
 
-#: task_manager/tasks/templates/tasks/index.html:17
+#: task_manager/tasks/templates/tasks/index.html:29
 msgid "TasksListTableHeaderName"
 msgstr "Название"
 
-#: task_manager/tasks/templates/tasks/index.html:18
+#: task_manager/tasks/templates/tasks/index.html:30
 msgid "TasksListTableHeaderStatus"
 msgstr "Статус"
 
-#: task_manager/tasks/templates/tasks/index.html:19
+#: task_manager/tasks/templates/tasks/index.html:31
 msgid "TasksListTableHeaderAuthor"
 msgstr "Автор"
 
-#: task_manager/tasks/templates/tasks/index.html:20
+#: task_manager/tasks/templates/tasks/index.html:32
 msgid "TasksListTableHeaderExecutor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/templates/tasks/index.html:21
+#: task_manager/tasks/templates/tasks/index.html:33
 msgid "TasksListTableHeaderCreatedAt"
 msgstr "Дата создания"
 
-#: task_manager/tasks/templates/tasks/index.html:22
+#: task_manager/tasks/templates/tasks/index.html:34
 msgid "TasksListTableHeaderActions"
 msgstr "Действия"
 
-#: task_manager/tasks/templates/tasks/index.html:35
+#: task_manager/tasks/templates/tasks/index.html:47
 msgid "TasksListTableActionUpdate"
 msgstr "Изменить"
 
-#: task_manager/tasks/templates/tasks/index.html:37
+#: task_manager/tasks/templates/tasks/index.html:49
 msgid "TasksListTableActionDelete"
 msgstr "Удалить"
 
@@ -336,23 +356,23 @@ msgstr "Изменение задачи"
 msgid "TasksUpdateFormSubmitButton"
 msgstr "Изменить"
 
-#: task_manager/tasks/views.py:46 task_manager/users/views.py:41
+#: task_manager/tasks/views.py:48 task_manager/users/views.py:41
 msgid "You do not have permission for this action."
 msgstr "У Вас нет прав для этого действия."
 
-#: task_manager/tasks/views.py:61 task_manager/users/views.py:56
+#: task_manager/tasks/views.py:63 task_manager/users/views.py:56
 msgid "You are not authorized. Please Log In."
 msgstr "Вы не авторизованы. Войдите в свою учётную запись."
 
-#: task_manager/tasks/views.py:139
+#: task_manager/tasks/views.py:142
 msgid "The task is successfully created!"
 msgstr "Задача успешно создана!"
 
-#: task_manager/tasks/views.py:176
+#: task_manager/tasks/views.py:179
 msgid "The task is successfully updated!"
 msgstr "Обновление задачи прошло успешно!"
 
-#: task_manager/tasks/views.py:212
+#: task_manager/tasks/views.py:215
 msgid "The task is successfully deleted!"
 msgstr "Удаление задачи прошло успешно!"
 
