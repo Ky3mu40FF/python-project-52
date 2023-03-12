@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-05 15:20+0300\n"
+"POT-Creation-Date: 2023-03-12 15:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,96 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: task_manager/settings.py:157
+#: task_manager/labels/templates/labels/create.html:7
+msgid "LabelsCreatePageHeader"
+msgstr "Create Label"
+
+#: task_manager/labels/templates/labels/create.html:11
+msgid "LabelsCreatePageNameFieldLabel"
+msgstr "Name"
+
+#: task_manager/labels/templates/labels/create.html:18
+msgid "LabelsCreateFormSubmitButton"
+msgstr "Create"
+
+#: task_manager/labels/templates/labels/delete.html:7
+msgid "LabelsDeleteFormPageHeader"
+msgstr "Delete Label"
+
+#: task_manager/labels/templates/labels/delete.html:9
+#, python-format
+msgid "Are you sure you want to delete the label %(label_name)s?"
+msgstr "Are you sure you want to delete the label %(label_name)s?"
+
+#: task_manager/labels/templates/labels/delete.html:13
+msgid "LabelsDeleteFormSubmitButton"
+msgstr "Yes, delete"
+
+#: task_manager/labels/templates/labels/index.html:7
+msgid "LabelsListPageHeader"
+msgstr "Labels"
+
+#: task_manager/labels/templates/labels/index.html:9
+msgid "LabelsListPageCreateLabelLink"
+msgstr "Create label"
+
+#: task_manager/labels/templates/labels/index.html:14
+msgid "LabelsListTableHeaderID"
+msgstr "ID"
+
+#: task_manager/labels/templates/labels/index.html:15
+msgid "LabelsListTableHeaderName"
+msgstr "Name"
+
+#: task_manager/labels/templates/labels/index.html:16
+msgid "LabelsListTableHeaderCreatedAt"
+msgstr "Created At"
+
+#: task_manager/labels/templates/labels/index.html:17
+msgid "LabelsListTableHeaderActions"
+msgstr "Actions"
+
+#: task_manager/labels/templates/labels/index.html:27
+msgid "LabelsListTableActionUpdate"
+msgstr "Update"
+
+#: task_manager/labels/templates/labels/index.html:29
+msgid "LabelsListTableActionDelete"
+msgstr "Delete"
+
+#: task_manager/labels/templates/labels/update.html:8
+msgid "LabelsUpdatePageHeader"
+msgstr "Update Label"
+
+#: task_manager/labels/templates/labels/update.html:13
+msgid "LabelsUpdatePageNameFieldLabel"
+msgstr "Name"
+
+#: task_manager/labels/templates/labels/update.html:20
+msgid "LabelsUpdateFormSubmitButton"
+msgstr "Update"
+
+#: task_manager/labels/views.py:51
+msgid "The label is successfully created!"
+msgstr "The label is successfully created!"
+
+#: task_manager/labels/views.py:87
+msgid "The label is successfully updated!"
+msgstr "The label is successfully updated!"
+
+#: task_manager/labels/views.py:125
+msgid "You cannot delete label associated with tasks."
+msgstr "You cannot delete label associated with tasks."
+
+#: task_manager/labels/views.py:129
+msgid "The label is successfully deleted!"
+msgstr "The label is successfully deleted!"
+
+#: task_manager/settings.py:158
 msgid "Russian"
 msgstr "Russian"
 
-#: task_manager/settings.py:158
+#: task_manager/settings.py:159
 msgid "English"
 msgstr "English"
 
@@ -102,7 +187,11 @@ msgstr "The status is successfully created!"
 msgid "The status is successfully updated!"
 msgstr "The status is successfully updated!"
 
-#: task_manager/statuses/views.py:123
+#: task_manager/statuses/views.py:125
+msgid "You cannot delete status associated with tasks."
+msgstr "You cannot delete status associated with tasks."
+
+#: task_manager/statuses/views.py:129
 msgid "The status is successfully deleted!"
 msgstr "The status is successfully deleted!"
 
@@ -111,33 +200,34 @@ msgid "Name"
 msgstr "Name"
 
 #: task_manager/tasks/forms.py:25 task_manager/tasks/forms.py:55
-#: task_manager/tasks/models.py:18
+#: task_manager/tasks/models.py:19
 msgid "Description"
 msgstr "Description"
 
 #: task_manager/tasks/forms.py:26 task_manager/tasks/forms.py:56
-#: task_manager/tasks/models.py:25
+#: task_manager/tasks/models.py:26
 msgid "Status"
 msgstr "Status"
 
-#: task_manager/tasks/forms.py:27 task_manager/tasks/models.py:33
+#: task_manager/tasks/forms.py:27 task_manager/tasks/models.py:34
 msgid "Author"
 msgstr "Author"
 
 #: task_manager/tasks/forms.py:28 task_manager/tasks/forms.py:57
-#: task_manager/tasks/models.py:41
+#: task_manager/tasks/models.py:42
 msgid "Executor"
 msgstr "Executor"
 
 #: task_manager/tasks/forms.py:29 task_manager/tasks/forms.py:58
-msgid "Tags"
-msgstr "Tags"
+#: task_manager/tasks/models.py:48
+msgid "Labels"
+msgstr "Labels"
 
-#: task_manager/tasks/models.py:12
+#: task_manager/tasks/models.py:13
 msgid "Password"
 msgstr "Password"
 
-#: task_manager/tasks/models.py:46
+#: task_manager/tasks/models.py:55
 msgid "Created at"
 msgstr "Created at"
 
@@ -145,7 +235,7 @@ msgstr "Created at"
 msgid "TasksCreatePageHeader"
 msgstr "Create task"
 
-#: task_manager/tasks/templates/tasks/create.html:40
+#: task_manager/tasks/templates/tasks/create.html:47
 msgid "TasksCreateFormSubmitButton"
 msgstr "Create"
 
@@ -154,6 +244,7 @@ msgid "TasksDeleteFormPageHeader"
 msgstr "Delete Task"
 
 #: task_manager/tasks/templates/tasks/delete.html:9
+#, python-format
 msgid "Are you sure you want to delete the task %(task_name)s?"
 msgstr "Are you sure you want to delete the task %(task_name)s?"
 
@@ -182,10 +273,14 @@ msgid "TasksDetailsCreatedAtLabel"
 msgstr "Created At"
 
 #: task_manager/tasks/templates/tasks/details.html:35
+msgid "TasksDetailsLabelsLabel"
+msgstr "Labels"
+
+#: task_manager/tasks/templates/tasks/details.html:45
 msgid "TasksDetailsActionsUpdate"
 msgstr "Update"
 
-#: task_manager/tasks/templates/tasks/details.html:37
+#: task_manager/tasks/templates/tasks/details.html:47
 msgid "TasksDetailsActionsDelete"
 msgstr "Delete"
 
@@ -237,7 +332,7 @@ msgstr "Delete"
 msgid "TasksUpdatePageHeader"
 msgstr "Update Task"
 
-#: task_manager/tasks/templates/tasks/update.html:41
+#: task_manager/tasks/templates/tasks/update.html:48
 msgid "TasksUpdateFormSubmitButton"
 msgstr "Update"
 
@@ -249,15 +344,15 @@ msgstr "You do not have permission for this action."
 msgid "You are not authorized. Please Log In."
 msgstr "You are not authorized. Please Log In."
 
-#: task_manager/tasks/views.py:138
+#: task_manager/tasks/views.py:139
 msgid "The task is successfully created!"
 msgstr "The task is successfully created!"
 
-#: task_manager/tasks/views.py:175
+#: task_manager/tasks/views.py:176
 msgid "The task is successfully updated!"
 msgstr "The task is successfully updated!"
 
-#: task_manager/tasks/views.py:211
+#: task_manager/tasks/views.py:212
 msgid "The task is successfully deleted!"
 msgstr "The task is successfully deleted!"
 
@@ -278,18 +373,22 @@ msgid "NavbarStatusesLink"
 msgstr "Statuses"
 
 #: task_manager/templates/navigation.html:24
+msgid "NavbarLabelsLink"
+msgstr "Labels"
+
+#: task_manager/templates/navigation.html:27
 msgid "NavbarTasksLink"
 msgstr "Tasks"
 
-#: task_manager/templates/navigation.html:32
+#: task_manager/templates/navigation.html:35
 msgid "NavbarLogOutLink"
 msgstr "Log Out"
 
-#: task_manager/templates/navigation.html:38
+#: task_manager/templates/navigation.html:41
 msgid "NavbarLogInLink"
 msgstr "Log In"
 
-#: task_manager/templates/navigation.html:41
+#: task_manager/templates/navigation.html:44
 msgid "NavbarSignUpLink"
 msgstr "Register"
 
@@ -419,13 +518,20 @@ msgstr "Confirm Password"
 msgid "UserEditFormSubmitButton"
 msgstr "Update"
 
-#: task_manager/users/views.py:212
+#: task_manager/users/views.py:182
+msgid "You cannot delete user associated with tasks."
+msgstr "You cannot delete user associated with tasks."
+
+#: task_manager/users/views.py:218
 msgid "Successfully Logged In!"
 msgstr "Successfully Logged In!"
 
-#: task_manager/users/views.py:227
+#: task_manager/users/views.py:233
 msgid "Successfully Logged Out!"
 msgstr "Successfully Logged Out!"
+
+#~ msgid "Tags"
+#~ msgstr "Tags"
 
 #~ msgid "StatusesDeleteFormPageConfirmationText"
 #~ msgstr "Are you sure you want to delete the status {{ status.name }}?"
