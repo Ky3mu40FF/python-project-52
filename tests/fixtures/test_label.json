@@ -1,0 +1,38 @@
+{
+    "create": {
+        "valid": {
+            "name": "Article"
+        },
+        "missing_fields": {
+            "name": ""
+        },
+        "null_fields": {
+            "name": null
+        },
+        "exists": {
+            "name": "BioHazard"
+        }
+    },
+    "update": {
+        "valid": {
+            "name": "Blog"
+        },
+        "missing_fields": {
+            "name": ""
+        },
+        "exists": {
+            "name": "BioHazard"
+        }
+    },
+    "delete": {
+        "valid": {
+            "name": "Not used"
+        },
+        "not_exists": {
+            "name": "Not Exists"
+        },
+        "associated_with_task": {
+            "name": "Bloodline"
+        }
+    }
+}

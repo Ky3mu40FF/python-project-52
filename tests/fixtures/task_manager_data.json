@@ -20,7 +20,7 @@
     "model": "users.user",
     "pk": 12,
     "fields": {
-        "last_login": "2023-03-19T10:44:51.713Z",
+        "last_login": "2023-03-19T16:40:06.017Z",
         "is_superuser": false,
         "username": "Zombie_Slayer",
         "first_name": "Leon",
@@ -109,6 +109,14 @@
     }
 },
 {
+    "model": "labels.label",
+    "pk": 4,
+    "fields": {
+        "name": "Not used",
+        "created_at": "2023-03-19T17:25:33.395Z"
+    }
+},
+{
     "model": "statuses.status",
     "pk": 3,
     "fields": {
@@ -170,6 +178,30 @@
         "author": 13,
         "executor": 12,
         "created_at": "2023-03-05T14:00:48.119Z"
+    }
+},
+{
+    "model": "tasks.tasklabel",
+    "pk": 1,
+    "fields": {
+        "task": 2,
+        "label": 1
+    }
+},
+{
+    "model": "tasks.tasklabel",
+    "pk": 2,
+    "fields": {
+        "task": 2,
+        "label": 2
+    }
+},
+{
+    "model": "tasks.tasklabel",
+    "pk": 3,
+    "fields": {
+        "task": 4,
+        "label": 3
     }
 }
 ]
