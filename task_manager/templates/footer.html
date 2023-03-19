@@ -1,0 +1,35 @@
+{% load i18n %}
+
+<div class="container flex-column my-5 pt-4 border-top">
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-auto">
+            <a target="_blank" href="https://github.com/Ky3mu40FF">Ky3mu40FF's GitHub</a>
+        </div>
+        <div class="col-sm-auto">
+            <a target="_blank" href="https://github.com/Ky3mu40FF/python-project-52">This Project's GitHub Repo</a>
+        </div>
+        <div class="col-sm-auto">
+            <a target="_blank" href="https://ru.hexlet.io/">Hexlet</a>
+        </div>
+        <div class="ml-auto">
+            <form name="ui" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                <input name="language" type="hidden"/>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_language_info for LANGUAGE_CODE as lang %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {{ lang.name_local }}
+                <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                {% for language in languages %}
+                    <li><a href="#" onclick="document.ui.language.value='{{ language.code}}'; document.ui.submit();">{{ language.name_local }}</a></li>
+                {% endfor %}
+                </ul>
+            </form>
+        </div>
+    </div>
+    
+</div>

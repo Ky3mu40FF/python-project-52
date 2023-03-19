@@ -11,10 +11,9 @@ class StatusCreateForm(ModelForm):
     class Meta:
         model = Status
         fields = ('name',)
-    
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'class': 'form-control'})
+        labels = {
+            'name': _('Name'),
+        }
 
 
 class StatusUpdateForm(ModelForm):
@@ -23,7 +22,6 @@ class StatusUpdateForm(ModelForm):
     class Meta:
         model = Status
         fields = ('name',)
-    
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'class': 'form-control'})
+        labels = {
+            'name': _('Name'),
+        }

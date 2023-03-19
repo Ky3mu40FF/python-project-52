@@ -1,15 +1,14 @@
 """task_manager.views module."""
-# task_manager/views.py
-from django.shortcuts import render
+from django.views.generic import TemplateView
+from django.utils.translation import gettext_lazy as _
 
 
-def index(request):
-    """Render Home page.
-
-    Args:
-        request(Any): Request params.
-
-    Returns:
-        Render Home page.
+class IndexView(TemplateView):
     """
-    return render(request, 'index.html')
+    Show index page.
+    """
+
+    template_name = 'index.html'
+    extra_context = {
+        'title': _('Task Manager'),
+    }

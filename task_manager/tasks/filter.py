@@ -12,22 +12,22 @@ from task_manager.users.models import User
 
 class TaskFilter(FilterSet):
     executor = ModelChoiceFilter(
-        label=_('ExecutorFilterFieldLabel'),
+        label=_('Executor'),
         queryset=User.objects.all(),
         widget=forms.Select,
     )
     status = ModelChoiceFilter(
-        label=_('StatusFilterFieldLabel'),
+        label=_('Status'),
         queryset=Status.objects.all(),
         widget=forms.Select,
     )
     labels = ModelChoiceFilter(
-        label=_('LabelFilterFieldLabel'),
+        label=_('Labels'),
         queryset=Label.objects.all(),
         widget=forms.Select,
     )
     owned_by_user = BooleanFilter(
-        label=_('OwnedByUserFilterFieldLabel'),
+        label=_('Only your tasks'),
         method='filter_user_owned',
         widget=forms.CheckboxInput,
     )

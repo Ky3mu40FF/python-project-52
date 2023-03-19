@@ -1,0 +1,175 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "last_login": "2023-03-19T10:45:21.947Z",
+        "is_superuser": true,
+        "username": "ky3mu40ff",
+        "first_name": "Aleksey",
+        "last_name": "Fominykh",
+        "password": "pbkdf2_sha256$390000$hnmBmtfIR0CSzyiL3LkOEi$yQ/BBlxUrS9m2ymAJvAqOAvNQPv8zldm/hf2VQLaWZ4=",
+        "is_staff": true,
+        "is_active": true,
+        "created_at": "2023-02-24T14:45:55.113Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 12,
+    "fields": {
+        "last_login": "2023-03-19T10:44:51.713Z",
+        "is_superuser": false,
+        "username": "Zombie_Slayer",
+        "first_name": "Leon",
+        "last_name": "Kennedy",
+        "password": "pbkdf2_sha256$390000$J13ThlL3GWwdulkTaJqKW2$2ldJNPzcue+gb99Z85kB33gcHn19xpXCLISf3x9xPxI=",
+        "is_staff": false,
+        "is_active": true,
+        "created_at": "2023-02-26T20:06:44.265Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 13,
+    "fields": {
+        "last_login": "2023-03-05T13:49:28.847Z",
+        "is_superuser": false,
+        "username": "Rock_Slayer",
+        "first_name": "Chris",
+        "last_name": "Redfield",
+        "password": "pbkdf2_sha256$390000$ZljO0jrEqXRdIYRtH7jakq$gfVPSAqjxu/+JBmbbMJwT4dG7pg9zaAZqxiTH/0Qgao=",
+        "is_staff": false,
+        "is_active": true,
+        "created_at": "2023-02-26T20:09:21.309Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 14,
+    "fields": {
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Whisker",
+        "first_name": "Albert",
+        "last_name": "Wesker",
+        "password": "pbkdf2_sha256$390000$mmBeWx69hZqbK0PTjPiMgg$pmpiVS+6xDiw5SJdADoHgR8KpBQaSdMRYNAHDukppso=",
+        "is_staff": true,
+        "is_active": true,
+        "created_at": "2023-02-26T20:13:35.990Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 15,
+    "fields": {
+        "last_login": "2023-03-18T19:31:08.361Z",
+        "is_superuser": false,
+        "username": "Test",
+        "first_name": "Naruto",
+        "last_name": "Uzumaki",
+        "password": "pbkdf2_sha256$390000$E4WBj0lRxkmqq7JONpKaZg$I4ky5EmvzEU4nCSQ3SxWs7fYcRB3A53WknKljaOJJGA=",
+        "is_staff": false,
+        "is_active": true,
+        "created_at": "2023-03-18T19:30:59.250Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "labels.label",
+    "pk": 1,
+    "fields": {
+        "name": "BioHazard",
+        "created_at": "2023-03-12T11:31:41.862Z"
+    }
+},
+{
+    "model": "labels.label",
+    "pk": 2,
+    "fields": {
+        "name": "B.O.W.",
+        "created_at": "2023-03-12T11:31:59.546Z"
+    }
+},
+{
+    "model": "labels.label",
+    "pk": 3,
+    "fields": {
+        "name": "Bloodline",
+        "created_at": "2023-03-12T12:53:09.102Z"
+    }
+},
+{
+    "model": "statuses.status",
+    "pk": 3,
+    "fields": {
+        "name": "New",
+        "created_at": "2023-02-26T13:27:44.633Z"
+    }
+},
+{
+    "model": "statuses.status",
+    "pk": 4,
+    "fields": {
+        "name": "None",
+        "created_at": "2023-02-26T13:38:16.651Z"
+    }
+},
+{
+    "model": "statuses.status",
+    "pk": 5,
+    "fields": {
+        "name": "In Progress",
+        "created_at": "2023-03-05T14:01:09.252Z"
+    }
+},
+{
+    "model": "statuses.status",
+    "pk": 7,
+    "fields": {
+        "name": "Dropped",
+        "created_at": "2023-03-18T14:57:26.225Z"
+    }
+},
+{
+    "model": "statuses.status",
+    "pk": 8,
+    "fields": {
+        "name": "Unable to finish",
+        "created_at": "2023-03-18T16:25:01.218Z"
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 2,
+    "fields": {
+        "name": "Спасти Эшли",
+        "description": "Эшли нашли в испанской деревушке.\r\nНужно её найти.",
+        "status": 3,
+        "author": 12,
+        "executor": 12,
+        "created_at": "2023-02-27T22:07:14.707Z"
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 4,
+    "fields": {
+        "name": "Continue Redfield Bloodline",
+        "description": "You want my sister?\r\nYou can have her!\r\nI left everything you need\r\ntogether at my place\r\nNow you just have to *@%^ her",
+        "status": 5,
+        "author": 13,
+        "executor": 12,
+        "created_at": "2023-03-05T14:00:48.119Z"
+    }
+}
+]

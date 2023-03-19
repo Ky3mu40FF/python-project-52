@@ -1,130 +1,76 @@
-from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views import View
-from task_manager.statuses.forms import (
-    StatusCreateForm,
-    StatusUpdateForm,
+from django.views.generic import (
+    CreateView, DeleteView, ListView, UpdateView,
 )
+from task_manager.mixins import AuthRequiredMixin, DeleteProtectionMixin
+from task_manager.statuses.forms import StatusCreateForm, StatusUpdateForm
 from task_manager.statuses.models import Status
 
 
-class IndexView(LoginRequiredMixin, View):
-    """Display list of all Status model instances."""
+class StatusesListView(AuthRequiredMixin, ListView):
+    """Show all statuses.
+    
+    Authorization required.
+    """
 
-    def get(self, request, *args, **kwargs) -> HttpResponse:
-        """Render page with statuses list.
-
-        Returns:
-            Render page with statuses list.
-        """
-        statuses = Status.objects.all()
-        return render(request, 'statuses/index.html', context={
-            'statuses': statuses,
-        })
-
-
-class StatusCreateFormView(LoginRequiredMixin, View):
-    """Display creation form of Status model instance."""
-
-    def get(self, request, *args, **kwargs) -> HttpResponse:
-        """Render page with status creation form.
-        
-        Returns:
-            Render page with status creation form.
-        """
-        form = StatusCreateForm()
-        return render(request, 'statuses/create.html', {'form': form})
-
-    def post(self, request, *args, **kwargs) -> HttpResponse:
-        """Create new status.
-        
-        Returns:
-            Redirect to statuses list page
-            or render page wit status creation form with added erros.
-        """
-        form = StatusCreateForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, _('The status is successfully created!'))
-            return redirect('statuses')
-        for field in form.errors:
-            form[field].field.widget.attrs['class'] += ' is-invalid'
-        return render(request, 'statuses/create.html', {'form': form})
+    template_name = 'statuses/list.html'
+    model = Status
+    context_object_name = 'statuses'
+    extra_context = {
+        'title': _('Statuses'),
+    }
 
 
-class StatusUpdateFormView(LoginRequiredMixin, View):
-    """Display updating form of Status model instance."""
+class StatusCreateFormView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
+    """Create new status.
+    
+    Authorization required.
+    """
 
-    def get(self, request, *args, **kwargs) -> HttpResponse:
-        """Render page with status updating form.
-        
-        Returns:
-            Render page with status updating form.
-        """
-        status_id = kwargs.get('id')
-        status = Status.objects.get(id=status_id)
-        form = StatusUpdateForm(instance=status)
-        return render(request, 'statuses/update.html', {
-            'form': form,
-            'status_id': status_id,
-        })
+    template_name = 'form.html'
+    model = Status
+    form_class = StatusCreateForm
+    success_url = reverse_lazy('statuses')
+    success_message = _('Status is successfully created!')
+    extra_context = {
+        'title': _('Status creation'),
+        'button_text': _('Create'),
+    }
+    
 
-    def post(self, request, *args, **kwargs) -> HttpResponse:
-        """Update selected status.
-        
-        Returns:
-            Redirect to statuses list page
-            or render page wit status updating form with added erros.
-        """
-        status_id = kwargs.get('id')
-        status = Status.objects.get(id=status_id)
-        form = StatusUpdateForm(data=request.POST, instance=status)
-        if form.is_valid():
-            form.save()
-            messages.success(request, _('The status is successfully updated!'))
-            return redirect('statuses')
-        for field in form.errors:
-            form[field].field.widget.attrs['class'] += ' is-invalid'
-        return render(request, 'statuses/update.html', {
-            'form': form,
-            'status_id': status_id,
-        })
+class StatusUpdateFormView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
+    """Update selected status.
+    
+    Authorization required.
+    """
+
+    template_name = 'form.html'
+    model = Status
+    form_class = StatusUpdateForm
+    success_url = reverse_lazy('statuses')
+    success_message = _('Status is successfully updated!')
+    extra_context = {
+        'title': _('Status updating'),
+        'button_text': _('Update'),
+    }
 
 
-class StatusDeleteFormView(LoginRequiredMixin, View):
-    """Display delition form of Status model instance."""
+class StatusDeleteFormView(AuthRequiredMixin, DeleteProtectionMixin, SuccessMessageMixin, DeleteView):
+    """Delete selected status.
+    
+    Authorization required.
+    If status is associated with task - it cannot be deleted.
+    """
 
-    def get(self, request, *args, **kwargs) -> HttpResponse:
-        """Render page with status delition form.
-        
-        Returns:
-            Render page with status delition form.
-        """
-        status_id = kwargs.get('id')
-        status = Status.objects.get(id=status_id)
-        return render(request, 'statuses/delete.html', {
-            'status_id': status_id,
-            'status_name': status.name,
-        })
-
-    def post(self, request, *args, **kwargs) -> HttpResponse:
-        """Delete selected status.
-        
-        Returns:
-            Redirect to statuses list page
-        """
-        status_id = kwargs.get('id')
-        status = Status.objects.get(id=status_id)
-        if status:
-            if status.task_set.all():
-                messages.error(
-                    self.request,
-                    _('You cannot delete status associated with tasks.'),
-                )
-                return redirect('statuses')
-            status.delete()
-            messages.success(request, _('The status is successfully deleted!'))
-            return redirect('statuses')
+    template_name = 'statuses/delete.html'
+    model = Status
+    success_url = reverse_lazy('statuses')
+    success_message = _('Status is successfully deleted!')
+    protected_url = reverse_lazy('statuses')
+    protected_message = _('You cannot delete the status associated with task.')
+    extra_context = {
+        'title': _('Status deletion'),
+        'button_text': _('Yes, delete'),
+    }

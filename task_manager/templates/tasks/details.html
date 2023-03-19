@@ -1,11 +1,15 @@
-{% extends 'layout.html'%}
+{% extends 'base.html'%}
+
 {% load bootstrap4 %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
+{% block title %}
+    {{ title }} | {% translate 'Task Manager' %}
+{% endblock %}
 
 {% block content %}
-<h1>{% translate "TasksDetailsPageHeader" %}</h1>
+<h1>{{ title }}</h1>
 
 <div class="card">
     <div class="card-header bg-secondary text-white">
@@ -15,24 +19,24 @@
         <p>{{ task.description }}</p>
         <hr>
         <div class="row p-1">
-            <div class="col">{% translate "TasksDetailsAutorLabel" %}</div>
+            <div class="col">{% translate 'Author' %}</div>
             <div class="col">{{ task.author }}</div>
         </div>
         <div class="row p-1">
-            <div class="col">{% translate "TasksDetailsExecutorLabel" %}</div>
+            <div class="col">{% translate 'Executor' %}</div>
             <div class="col">{{ task.executor }}</div>
         </div>
         <div class="row p-1">
-            <div class="col">{% translate "TasksDetailsStatusLabel" %}</div>
+            <div class="col">{% translate 'Status' %}</div>
             <div class="col">{{ task.status }}</div>
         </div>
         <div class="row p-1">
-            <div class="col">{% translate "TasksDetailsCreatedAtLabel" %}</div>
-            <div class="col">{{ task.created_at }}</div>
+            <div class="col">{% translate 'Created at' %}</div>
+            <div class="col">{{ task.created_at|date:"d.m.Y H:i" }}</div>
         </div>
         <div class="row p-1">
             <div class="col">
-                <h6>{% translate "TasksDetailsLabelsLabel" %}</h6>
+                <h6>{% translate 'Labels' %}</h6>
                 <ul>
                     {% for label in task.labels.all %}
                     <li>{{ label.name }}</li>
@@ -42,9 +46,9 @@
         </div>
         <div class="row p-1">
             <div class="col">
-                <a href="{% url 'tasks_update' task.id %}">{% translate "TasksDetailsActionsUpdate" %}</a>
+                <a href="{% url 'tasks_update' task.pk %}">{% translate 'Update' %}</a>
                 <br>
-                <a href="{% url 'tasks_delete' task.id %}">{% translate "TasksDetailsActionsDelete" %}</a>
+                <a href="{% url 'tasks_delete' task.pk %}">{% translate 'Delete' %}</a>
             </div>
         </div>
     </div>

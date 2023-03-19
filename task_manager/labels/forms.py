@@ -10,10 +10,9 @@ class LabelCreateForm(ModelForm):
     class Meta:
         model = Label
         fields = ('name',)
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'class': 'form-control'})
+        labels = {
+            'name': _('Name'),
+        }
 
 
 class LabelUpdateForm(ModelForm):
@@ -22,7 +21,6 @@ class LabelUpdateForm(ModelForm):
     class Meta:
         model = Label
         fields = ('name',)
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'class': 'form-control'})
+        labels = {
+            'name': _('Name'),
+        }

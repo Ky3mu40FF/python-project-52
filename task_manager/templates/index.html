@@ -1,9 +1,17 @@
-{% extends 'layout.html'%}
+{% extends 'base.html'%}
+
 {% load bootstrap4 %}
 {% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
 
+{% block title %}
+    {{ title }} | {% translate 'Task Manager' %}
+{% endblock %}
 
 {% block content %}
-<h1>{% translate "Welcome" %}</h1>
+<div class="card">
+    <div class="card-body p-5 bg-light">
+        <h1 class="display-4">{{ title }}</h1>
+        <p>{% trans 'Simple web-based task manager.' %}</p>
+    </div>
+</div>
 {% endblock content %}

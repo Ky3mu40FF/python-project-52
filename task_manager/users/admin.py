@@ -1,18 +1,23 @@
 """task_manager - users app - config for admin site."""
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.forms import (
+    UserCreationForm,
+    UserChangeForm,
+)
 from task_manager.users.forms import (
-    CustomUserChangeForm,
-    CustomUserCreationForm,
+    CustomUserForm,
 )
 from task_manager.users.models import User
 
 
 class CustomUserAdmin(UserAdmin):
-    """View for User model in admin site."""
+    """
+    View for User model in admin site.
+    """
 
-    add_form = CustomUserCreationForm
-    form = CustomUserChangeForm
+    add_form = UserCreationForm
+    form = UserChangeForm
     model = User
     list_display = ('username', 'created_at', 'is_staff', 'is_active')
     list_filter = ('username', 'created_at', 'is_staff', 'is_active')
