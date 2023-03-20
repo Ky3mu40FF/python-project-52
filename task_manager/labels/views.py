@@ -49,7 +49,7 @@ class LabelUpdateFormView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'form.html'
     model = Label
     form_class = LabelUpdateForm
-    success_url = reverse_lazy('statuses')
+    success_url = reverse_lazy('labels')
     success_message = _('Label is successfully updated!')
     extra_context = {
         'title': _('Label updating'),
