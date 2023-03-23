@@ -1,0 +1,44 @@
+{
+    "create": {
+        "valid": {
+            "name": "",
+            "description": "",
+            "executor": 1,
+            "status": 1
+        },
+        "missing_fields": {
+            "name": "",
+            "description": "",
+            "executor": "",
+            "status": ""
+        },
+        "exists": {
+            "name": "Спасти Эшли",
+            "description": "Эшли нашли в испанской деревушке.\r\nНужно её найти.",
+            "executor": 3,
+            "status": 12
+        }
+    }, 
+    "update": {
+        "valid": {
+
+        },
+        "missing_fields": {
+
+        },
+        "exists": {
+
+        }
+    },
+    "delete": {
+        "valid": {
+
+        },
+        "missing_fields": {
+
+        },
+        "exists": {
+
+        }
+    }
+}

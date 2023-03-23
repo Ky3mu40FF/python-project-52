@@ -1,0 +1,38 @@
+{
+    "create": {
+        "valid": {
+            "name": "Revision"
+        },
+        "missing_fields": {
+            "name": ""
+        },
+        "null_fields": {
+            "name": null
+        },
+        "exists": {
+            "name": "New"
+        }
+    },
+    "update": {
+        "valid": {
+            "name": "Updated"
+        },
+        "missing_fields": {
+            "name": ""
+        },
+        "exists": {
+            "name": "New"
+        }
+    },
+    "delete": {
+        "valid": {
+            "name": "None"
+        },
+        "not_exists": {
+            "name": "Not Exists"
+        },
+        "associated_with_task": {
+            "name": "New"
+        }
+    }
+}

@@ -18,7 +18,7 @@
 },
 {
     "model": "users.user",
-    "pk": 12,
+    "pk": 2,
     "fields": {
         "last_login": "2023-03-19T16:40:06.017Z",
         "is_superuser": false,
@@ -35,7 +35,7 @@
 },
 {
     "model": "users.user",
-    "pk": 13,
+    "pk": 3,
     "fields": {
         "last_login": "2023-03-05T13:49:28.847Z",
         "is_superuser": false,
@@ -52,7 +52,7 @@
 },
 {
     "model": "users.user",
-    "pk": 14,
+    "pk": 4,
     "fields": {
         "last_login": null,
         "is_superuser": false,
@@ -69,7 +69,7 @@
 },
 {
     "model": "users.user",
-    "pk": 15,
+    "pk": 5,
     "fields": {
         "last_login": "2023-03-18T19:31:08.361Z",
         "is_superuser": false,
@@ -118,7 +118,7 @@
 },
 {
     "model": "statuses.status",
-    "pk": 3,
+    "pk": 1,
     "fields": {
         "name": "New",
         "created_at": "2023-02-26T13:27:44.633Z"
@@ -126,7 +126,7 @@
 },
 {
     "model": "statuses.status",
-    "pk": 4,
+    "pk": 2,
     "fields": {
         "name": "None",
         "created_at": "2023-02-26T13:38:16.651Z"
@@ -134,7 +134,7 @@
 },
 {
     "model": "statuses.status",
-    "pk": 5,
+    "pk": 3,
     "fields": {
         "name": "In Progress",
         "created_at": "2023-03-05T14:01:09.252Z"
@@ -142,7 +142,7 @@
 },
 {
     "model": "statuses.status",
-    "pk": 7,
+    "pk": 4,
     "fields": {
         "name": "Dropped",
         "created_at": "2023-03-18T14:57:26.225Z"
@@ -150,7 +150,7 @@
 },
 {
     "model": "statuses.status",
-    "pk": 8,
+    "pk": 5,
     "fields": {
         "name": "Unable to finish",
         "created_at": "2023-03-18T16:25:01.218Z"
@@ -158,25 +158,25 @@
 },
 {
     "model": "tasks.task",
-    "pk": 2,
+    "pk": 1,
     "fields": {
         "name": "Спасти Эшли",
         "description": "Эшли нашли в испанской деревушке.\r\nНужно её найти.",
-        "status": 3,
-        "author": 12,
-        "executor": 12,
+        "status": 1,
+        "author": 1,
+        "executor": 1,
         "created_at": "2023-02-27T22:07:14.707Z"
     }
 },
 {
     "model": "tasks.task",
-    "pk": 4,
+    "pk": 2,
     "fields": {
         "name": "Continue Redfield Bloodline",
         "description": "You want my sister?\r\nYou can have her!\r\nI left everything you need\r\ntogether at my place\r\nNow you just have to *@%^ her",
-        "status": 5,
-        "author": 13,
-        "executor": 12,
+        "status": 3,
+        "author": 2,
+        "executor": 1,
         "created_at": "2023-03-05T14:00:48.119Z"
     }
 },
@@ -184,7 +184,7 @@
     "model": "tasks.tasklabel",
     "pk": 1,
     "fields": {
-        "task": 2,
+        "task": 1,
         "label": 1
     }
 },
@@ -192,7 +192,7 @@
     "model": "tasks.tasklabel",
     "pk": 2,
     "fields": {
-        "task": 2,
+        "task": 1,
         "label": 2
     }
 },
@@ -200,7 +200,7 @@
     "model": "tasks.tasklabel",
     "pk": 3,
     "fields": {
-        "task": 4,
+        "task": 2,
         "label": 3
     }
 }

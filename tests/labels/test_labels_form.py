@@ -1,7 +1,5 @@
-from django.db.utils import IntegrityError
 import pytest
 from task_manager.labels.forms import LabelCreateForm, LabelUpdateForm
-from task_manager.labels.models import Label
 
 def test_create_label(db, django_db_setup, label_model_test_fixtures) -> None:
     label_data = label_model_test_fixtures['create']['valid'].copy()

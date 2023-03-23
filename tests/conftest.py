@@ -31,3 +31,19 @@ def user_model_test_fixtures():
     with open(file_path, mode='r') as f:
         result = json.load(f)
     return result
+
+
+@pytest.fixture()
+def status_model_test_fixtures():
+    file_path =  os.path.join('tests/fixtures', 'test_status.json')
+    with open(file_path, mode='r') as f:
+        result = json.load(f)
+    return result
+
+
+@pytest.fixture()
+def task_model_test_fixtures():
+    file_path =  os.path.join('tests/fixtures', 'test_task.json')
+    with open(file_path, mode='r') as f:
+        result = json.load(f)
+    return result

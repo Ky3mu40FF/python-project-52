@@ -4,5 +4,65 @@
             "username": "Zombie_Slayer",
             "password": "NoThanksBro"
         }
+    },
+    "create": {
+        "valid": {
+            "username": "JillSandwich",
+            "first_name": "Jill",
+            "last_name": "Valentine",
+            "password1": "You_Want_S.T.A.R.S.?",
+            "password2": "You_Want_S.T.A.R.S.?"
+        },
+        "missing_fields": {
+            "username": "",
+            "first_name": "",
+            "last_name": "",
+            "password1": "You_Want_S.T.A.R.S.?",
+            "password2": "You_Want_S.T.A.R.S.?"
+        },
+        "null_fields": {
+            "username": null,
+            "first_name": null,
+            "last_name": null,
+            "password1": "You_Want_S.T.A.R.S.?",
+            "password2": "You_Want_S.T.A.R.S.?"
+        },
+        "exists": {
+            "username": "Zombie_Slayer",
+            "first_name": "Leon",
+            "last_name": "Kennedy",
+            "password1": "NoThanksBro",
+            "password2": "NoThanksBro"
+        },
+        "missing_pass": {
+            "username": "JillSandwich",
+            "first_name": "Jill",
+            "last_name": "Valentine",
+            "password1": "",
+            "password2": ""
+        },
+        "pass_too_short": {
+            "username": "JillSandwich",
+            "first_name": "Jill",
+            "last_name": "Valentine",
+            "password1": "?",
+            "password2": "?"
+        },
+        "pass_not_match": {
+            "username": "JillSandwich",
+            "first_name": "Jill",
+            "last_name": "Valentine",
+            "password1": "You_Want_S.T.A.R.S.?",
+            "password2": "I'll_Give_You_S.T.A.R.S."
+        }
+    },
+    "update": {
+        "valid":{
+            "username": "JillSandwich",
+            "first_name": "Jill",
+            "last_name": "Valentine",
+            "password1": "You_Want_S.T.A.R.S.?",
+            "password2": "You_Want_S.T.A.R.S.?"
+        }
     }
 }
