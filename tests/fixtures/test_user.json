@@ -1,8 +1,18 @@
 {
     "login": {
-        "simple1": {
-            "username": "Zombie_Slayer",
-            "password": "NoThanksBro"
+        "user1": {
+            "pk": 2,
+            "auth_data": {
+                "username": "Zombie_Slayer",
+                "password": "NoThanksBro"
+            }
+        },
+        "user2": {
+            "pk": 3,
+            "auth_data": {
+                "username": "Rock_Slayer",
+                "password": "RedfieldsBloodline"
+            }
         }
     },
     "create": {

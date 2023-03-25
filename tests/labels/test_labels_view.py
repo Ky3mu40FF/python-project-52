@@ -5,7 +5,7 @@ from task_manager.labels.models import Label
 
 
 def test_labels_list_view(db, django_db_setup, client, label_model_test_fixtures, user_model_test_fixtures):
-    user_data = user_model_test_fixtures['login']['simple1'].copy()
+    user_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()
     client.login(
         username=user_data['username'],
         password=user_data['password'],
@@ -33,7 +33,7 @@ def test_labels_list_view_not_logged_in(db, django_db_setup, client):
 
 
 def test_labels_create_view(db, django_db_setup, client, label_model_test_fixtures, user_model_test_fixtures):
-    user_data = user_model_test_fixtures['login']['simple1'].copy()
+    user_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()
     client.login(
         username=user_data['username'],
         password=user_data['password'],
@@ -53,7 +53,7 @@ def test_labels_create_view_not_logged_in(db, django_db_setup, client):
 
 
 def test_labels_update_view(db, django_db_setup, client, label_model_test_fixtures, user_model_test_fixtures):
-    user_data = user_model_test_fixtures['login']['simple1'].copy()
+    user_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()
     client.login(
         username=user_data['username'],
         password=user_data['password'],
@@ -73,7 +73,7 @@ def test_labels_update_view_not_logged_in(db, django_db_setup, client):
 
 
 def test_labels_delete_view(db, django_db_setup, client, label_model_test_fixtures, user_model_test_fixtures):
-    user_data = user_model_test_fixtures['login']['simple1'].copy()
+    user_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()
     client.login(
         username=user_data['username'],
         password=user_data['password'],

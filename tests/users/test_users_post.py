@@ -8,7 +8,7 @@ from task_manager.users.models import User
 
 def test_create_valid_user(db, django_db_setup, client, user_model_test_fixtures) -> None:
     user_data = user_model_test_fixtures['create']['valid'].copy()
-    user_login_data = user_model_test_fixtures['login']['simple1'].copy()
+    user_login_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()
     client.login(
         username=user_login_data['username'],
         password=user_login_data['password'],
@@ -27,7 +27,7 @@ def test_create_valid_user(db, django_db_setup, client, user_model_test_fixtures
 
 def test_create_missing_fields(db, django_db_setup, client, user_model_test_fixtures) -> None:
     user_data = user_model_test_fixtures['create']['missing_fields'].copy()
-    user_login_data = user_model_test_fixtures['login']['simple1'].copy()
+    user_login_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()
     client.login(
         username=user_login_data['username'],
         password=user_login_data['password'],
@@ -50,7 +50,7 @@ def test_create_missing_fields(db, django_db_setup, client, user_model_test_fixt
 
 def test_create_existing_user(db, django_db_setup, client, user_model_test_fixtures) -> None:
     user_data = user_model_test_fixtures['create']['exists'].copy()
-    user_login_data = user_model_test_fixtures['login']['simple1'].copy()
+    user_login_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()
     client.login(
         username=user_login_data['username'],
         password=user_login_data['password'],
@@ -74,7 +74,7 @@ def test_create_existing_user(db, django_db_setup, client, user_model_test_fixtu
 def test_create_long_name(db, django_db_setup, client, user_model_test_fixtures) -> None:
     user_data = user_model_test_fixtures['create']['valid'].copy()
     user_data['username'] = user_data['username'] * 100
-    user_login_data = user_model_test_fixtures['login']['simple1'].copy()
+    user_login_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()
     client.login(
         username=user_login_data['username'],
         password=user_login_data['password'],
@@ -111,7 +111,7 @@ def test_create_user_not_logged_in(db, django_db_setup, client, user_model_test_
 
 def test_update_user_valid(db, django_db_setup, client, user_model_test_fixtures) -> None:
     user_data = user_model_test_fixtures['update']['valid'].copy()
-    user_login_data = user_model_test_fixtures['login']['simple1'].copy()
+    user_login_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()
     client.login(
         username=user_login_data['username'],
         password=user_login_data['password'],
