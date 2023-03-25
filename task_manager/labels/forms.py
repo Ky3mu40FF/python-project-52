@@ -7,7 +7,7 @@ from task_manager.labels.models import Label
 class LabelCreateForm(ModelForm):
     """Label creation form."""
 
-    class Meta:
+    class Meta(ModelForm):
         model = Label
         fields = ('name',)
         labels = {
@@ -18,7 +18,7 @@ class LabelCreateForm(ModelForm):
 class LabelUpdateForm(ModelForm):
     """Label updating form."""
 
-    class Meta:
+    class Meta(ModelForm):
         model = Label
         fields = ('name',)
         labels = {

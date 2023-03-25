@@ -4,22 +4,20 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import (
-    CreateView, DeleteView, ListView, UpdateView,
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
+from task_manager.mixins import (
+    AuthRequiredMixin,
+    DeleteProtectionMixin,
+    UserPermissionMixin,
 )
-from task_manager.mixins import AuthRequiredMixin, UserPermissionMixin, DeleteProtectionMixin
-from task_manager.users.forms import (
-    CustomUserForm,
-)
+from task_manager.users.forms import CustomUserForm
 from task_manager.users.models import User
 
 
 class UsersListView(ListView):
-    """
-    Show all users.
-    """
+    """Show all users."""
 
-    template_name = 'users/list.html'    
+    template_name = 'users/list.html'
     model = User
     context_object_name = 'users'
     extra_context = {
@@ -28,9 +26,7 @@ class UsersListView(ListView):
 
 
 class UserCreationFormView(SuccessMessageMixin, CreateView):
-    """
-    Register new user.
-    """
+    """Register new user."""
 
     template_name = 'form.html'
     model = User
@@ -64,8 +60,12 @@ class UserUpdateFormView(AuthRequiredMixin, UserPermissionMixin, UpdateView):
     }
 
 
-class UserDeleteFormView(AuthRequiredMixin, UserPermissionMixin,
-                         DeleteProtectionMixin, DeleteView):
+class UserDeleteFormView(
+    AuthRequiredMixin,
+    UserPermissionMixin,
+    DeleteProtectionMixin,
+    DeleteView,
+):
     """
     Delete user.
 
@@ -89,9 +89,7 @@ class UserDeleteFormView(AuthRequiredMixin, UserPermissionMixin,
 
 
 class UserAuthenticationFormView(SuccessMessageMixin, LoginView):
-    """
-    Log In user.
-    """
+    """Log In user."""
 
     template_name = 'form.html'
     form_class = AuthenticationForm
@@ -104,9 +102,7 @@ class UserAuthenticationFormView(SuccessMessageMixin, LoginView):
 
 
 class UserLogOutView(LogoutView):
-    """
-    Log Out user.
-    """
+    """Log Out user."""
 
     next_page = reverse_lazy('homepage')
     success_message = _('You are logged out!')

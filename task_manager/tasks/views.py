@@ -2,11 +2,9 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import (
-    CreateView, DeleteView, DetailView, UpdateView,
-)
+from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 from django_filters.views import FilterView
-from task_manager.mixins import AuthRequiredMixin, AuthorDeletionMixin
+from task_manager.mixins import AuthorDeletionMixin, AuthRequiredMixin
 from task_manager.tasks.filter import TaskFilter
 from task_manager.tasks.forms import TaskCreateForm, TaskUpdateForm
 from task_manager.tasks.models import Task
@@ -15,7 +13,7 @@ from task_manager.users.models import User
 
 class TasksListView(AuthRequiredMixin, FilterView):
     """Show filtered list of tasks.
-    
+
     Authorization required.
     """
 
@@ -30,8 +28,9 @@ class TasksListView(AuthRequiredMixin, FilterView):
 
 
 class TaskDetailsView(AuthRequiredMixin, DetailView):
-    """Show task details.
-    
+    """
+    Show task details.
+
     Authorization required.
     """
 
@@ -44,8 +43,9 @@ class TaskDetailsView(AuthRequiredMixin, DetailView):
 
 
 class TaskCreateFormView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
-    """Create new task.
-    
+    """
+    Create new task.
+
     Authorization required.
     """
 
@@ -62,6 +62,12 @@ class TaskCreateFormView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
     def form_valid(self, form):
         """
         Set current user as the task's author.
+
+        Args:
+            form(BaseForm): Filled form for task creation.
+
+        Returns:
+            (HttpResponse): Form with filled 'author' field.
         """
         user = self.request.user
         form.instance.author = User.objects.get(pk=user.pk)
@@ -69,7 +75,8 @@ class TaskCreateFormView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
 
 
 class TaskUpdateFormView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
-    """Update selected task.
+    """
+    Update selected task.
 
     Authorization required.
     """
@@ -85,9 +92,15 @@ class TaskUpdateFormView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     }
 
 
-class TaskDeleteFormView(AuthRequiredMixin, AuthorDeletionMixin, SuccessMessageMixin, DeleteView):
-    """Delete selected task.
-    
+class TaskDeleteFormView(
+    AuthRequiredMixin,
+    AuthorDeletionMixin,
+    SuccessMessageMixin,
+    DeleteView,
+):
+    """
+    Delete selected task.
+
     Authorization required.
     Only author can delete task.
     """

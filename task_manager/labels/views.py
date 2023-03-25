@@ -1,17 +1,16 @@
+"""task_manager - labels - views module."""
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import (
-    CreateView, DeleteView, ListView, UpdateView,
-)
-from task_manager.mixins import AuthRequiredMixin, DeleteProtectionMixin
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 from task_manager.labels.forms import LabelCreateForm, LabelUpdateForm
 from task_manager.labels.models import Label
+from task_manager.mixins import AuthRequiredMixin, DeleteProtectionMixin
 
 
 class LabelsListView(AuthRequiredMixin, ListView):
     """Show all labels.
-    
+
     Authorization required.
     """
 
@@ -25,7 +24,7 @@ class LabelsListView(AuthRequiredMixin, ListView):
 
 class LabelCreateFormView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
     """Create new label.
-    
+
     Authorization required.
     """
 
@@ -42,7 +41,7 @@ class LabelCreateFormView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
 
 class LabelUpdateFormView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     """Update selected label.
-    
+
     Authorization required.
     """
 
@@ -57,9 +56,14 @@ class LabelUpdateFormView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     }
 
 
-class LabelDeleteFormView(AuthRequiredMixin, DeleteProtectionMixin, SuccessMessageMixin, DeleteView):
+class LabelDeleteFormView(
+    AuthRequiredMixin,
+    DeleteProtectionMixin,
+    SuccessMessageMixin,
+    DeleteView,
+):
     """Delete selected label.
-    
+
     Authorization required.
     """
 

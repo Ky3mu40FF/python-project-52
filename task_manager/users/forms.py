@@ -1,6 +1,5 @@
 """task_manager.users.forms module."""
 from django.contrib.auth.forms import UserCreationForm
-from django.utils.translation import gettext_lazy as _
 from task_manager.users.models import User
 
 
@@ -9,6 +8,10 @@ class CustomUserForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ('username', 'first_name', 'last_name',
-                  'password1', 'password2',
-                  )
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'password1',
+            'password2',
+        )

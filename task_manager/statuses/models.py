@@ -1,6 +1,7 @@
 """task_manager - statuses app - models module."""
 from django.db import models
 
+
 class Status(models.Model):
     """Status of task model."""
 
@@ -13,4 +14,10 @@ class Status(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        """
+        Return string representation of Status instance.
+
+        Returns:
+            (str): Status' name
+        """
         return self.name

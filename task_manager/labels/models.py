@@ -1,4 +1,6 @@
+"""task_model - labels - models module."""
 from django.db import models
+
 
 class Label(models.Model):
     """Label for task model."""
@@ -12,4 +14,10 @@ class Label(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        """
+        Return string representation of Label instance.
+
+        Returns:
+            (str): Label's name
+        """
         return self.name

@@ -1,8 +1,6 @@
+"""task_manager.tasks.admin module."""
 from django.contrib import admin
-from task_manager.tasks.forms import (
-    TaskCreateForm,
-    TaskUpdateForm,
-)
+from task_manager.tasks.forms import TaskCreateForm, TaskUpdateForm
 from task_manager.tasks.models import Task
 
 

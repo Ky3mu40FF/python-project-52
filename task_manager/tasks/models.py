@@ -5,6 +5,7 @@ from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 from task_manager.users.models import User
 
+
 class Task(models.Model):
     """Task model."""
 
@@ -57,9 +58,17 @@ class Task(models.Model):
     )
 
     def __str__(self):
+        """
+        Return string representation of Task instance.
+
+        Returns:
+            (str): Task's name.
+        """
         return self.name
 
 
 class TaskLabel(models.Model):
+    """Link model for ManyToMany relation between Task and Label models."""
+
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     label = models.ForeignKey(Label, on_delete=models.PROTECT)

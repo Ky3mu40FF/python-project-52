@@ -1,17 +1,17 @@
+"""task_manager.statuses.views module."""
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import (
-    CreateView, DeleteView, ListView, UpdateView,
-)
+from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 from task_manager.mixins import AuthRequiredMixin, DeleteProtectionMixin
 from task_manager.statuses.forms import StatusCreateForm, StatusUpdateForm
 from task_manager.statuses.models import Status
 
 
 class StatusesListView(AuthRequiredMixin, ListView):
-    """Show all statuses.
-    
+    """
+    Show all statuses.
+
     Authorization required.
     """
 
@@ -24,8 +24,9 @@ class StatusesListView(AuthRequiredMixin, ListView):
 
 
 class StatusCreateFormView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
-    """Create new status.
-    
+    """
+    Create new status.
+
     Authorization required.
     """
 
@@ -38,11 +39,12 @@ class StatusCreateFormView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
         'title': _('Status creation'),
         'button_text': _('Create'),
     }
-    
+
 
 class StatusUpdateFormView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
-    """Update selected status.
-    
+    """
+    Update selected status.
+
     Authorization required.
     """
 
@@ -57,9 +59,15 @@ class StatusUpdateFormView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     }
 
 
-class StatusDeleteFormView(AuthRequiredMixin, DeleteProtectionMixin, SuccessMessageMixin, DeleteView):
-    """Delete selected status.
-    
+class StatusDeleteFormView(
+    AuthRequiredMixin,
+    DeleteProtectionMixin,
+    SuccessMessageMixin,
+    DeleteView,
+):
+    """
+    Delete selected status.
+
     Authorization required.
     If status is associated with task - it cannot be deleted.
     """

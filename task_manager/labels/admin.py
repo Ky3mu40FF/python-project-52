@@ -1,8 +1,6 @@
+"""task_manager.labels.admin module."""
 from django.contrib import admin
-from task_manager.labels.forms import (
-    LabelCreateForm,
-    LabelUpdateForm,
-)
+from task_manager.labels.forms import LabelCreateForm, LabelUpdateForm
 from task_manager.labels.models import Label
 
 

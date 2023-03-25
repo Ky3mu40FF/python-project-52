@@ -1,16 +1,13 @@
 """task_manager.statuses.forms module."""
-from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
-from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
-from task_manager.users.models import User
 
 
 class TaskCreateForm(ModelForm):
     """Task creation form."""
 
-    class Meta:
+    class Meta(ModelForm):
         model = Task
         fields = (
             'name',
@@ -31,7 +28,7 @@ class TaskCreateForm(ModelForm):
 class TaskUpdateForm(ModelForm):
     """Task updating form."""
 
-    class Meta:
+    class Meta(ModelForm):
         model = Task
         fields = (
             'name',

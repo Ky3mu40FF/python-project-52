@@ -1,8 +1,6 @@
+"""task_manager.statuses.admin module."""
 from django.contrib import admin
-from task_manager.statuses.forms import (
-    StatusCreateForm,
-    StatusUpdateForm,
-)
+from task_manager.statuses.forms import StatusCreateForm, StatusUpdateForm
 from task_manager.statuses.models import Status
 
 
