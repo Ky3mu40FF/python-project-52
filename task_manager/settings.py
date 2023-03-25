@@ -149,9 +149,20 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
+if os.getenv('LANGUAGE_CODE'):
+    LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
+else:
+    LANGUAGE_CODE = 'en-us'
+
+if os.getenv('TIME_ZONE'):
+    TIME_ZONE = os.getenv('TIME_ZONE')
+else:
+    TIME_ZONE = 'UTC'
+
 TIME_ZONE = os.getenv('TIME_ZONE')
+
 USE_I18N = True
+
 USE_TZ = True
  
 LANGUAGES = (
