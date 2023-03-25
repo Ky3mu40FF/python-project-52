@@ -108,7 +108,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if DEBUG or os.environ.get('GITHUB_ACTIONS') == 'true':
+if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -155,8 +155,6 @@ else:
     LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
-
-TIME_ZONE = os.getenv('TIME_ZONE')
 
 USE_I18N = True
 
