@@ -154,10 +154,7 @@ if os.getenv('LANGUAGE_CODE'):
 else:
     LANGUAGE_CODE = 'en-us'
 
-if os.getenv('TIME_ZONE'):
-    TIME_ZONE = os.getenv('TIME_ZONE')
-else:
-    TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC'
 
 TIME_ZONE = os.getenv('TIME_ZONE')
 
