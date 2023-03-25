@@ -10,7 +10,8 @@ class Task(models.Model):
 
     name = models.CharField(
         max_length=100,
-        verbose_name=_('Password'),
+        verbose_name=_('Name'),
+        unique=True,
         null=False,
         blank=False,
     )
@@ -47,6 +48,8 @@ class Task(models.Model):
         Label,
         verbose_name=_('Labels'),
         through='TaskLabel',
+        null=True,
+        blank=True,
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
