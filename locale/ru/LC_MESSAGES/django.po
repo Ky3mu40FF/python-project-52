@@ -268,7 +268,7 @@ msgstr "Вход"
 
 #: task_manager/templates/navbar.html:38
 msgid "Registration"
-msgstr "Зарегистрироваться"
+msgstr "Регистрация"
 
 #: task_manager/templates/statuses/delete.html:14
 msgid "Are you sure you want to delete status"
