@@ -26,8 +26,6 @@ jobs:
           make install
 
       - name: Run tests
-        env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           export DJANGO_SETTINGS_MODULE=task_manager.settings
           make test
