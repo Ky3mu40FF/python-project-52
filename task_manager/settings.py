@@ -145,7 +145,7 @@ AUTH_PASSWORD_VALIDATORS = [
 if os.getenv('LANGUAGE_CODE'):
     LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
 else:
-    LANGUAGE_CODE = 'en-us'
+    LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 

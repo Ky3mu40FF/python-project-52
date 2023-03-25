@@ -12,7 +12,7 @@ from task_manager.users.models import User
 
 @pytest.fixture(autouse=True)
 def set_default_language():
-    activate('en-us')
+    activate('ru-ru')
 
 
 @pytest.fixture(scope='session')

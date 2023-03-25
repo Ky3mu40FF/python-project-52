@@ -86,7 +86,7 @@ def test_create_long_name(db, django_db_setup, client, status_model_test_fixture
     )
 
     errors = response.context['form'].errors
-    error_help = _('Ensure this value has at most 100 characters ' f'(it has {len(status_data["name"])}).')
+    error_help = _('Ensure this value has at most 100 characters (it has %s}).') % len(status_data["name"])
 
     assert 'name' in errors
     assert [error_help] == errors['name']
