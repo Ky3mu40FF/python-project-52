@@ -14,7 +14,8 @@
 
 ### Internal tests and linter status
 
-[![Tests and Linter Status](https://github.com/Ky3mu40FF/python-project-52/workflows/code-check/badge.svg)](https://github.com/Ky3mu40FF/python-project-52/actions)
+[![Tests](https://github.com/Ky3mu40FF/python-project-52/workflows/run%20tests/badge.svg)](https://github.com/Ky3mu40FF/python-project-52/actions)
+[![Linter](https://github.com/Ky3mu40FF/python-project-52/workflows/lint%20check/badge.svg)](https://github.com/Ky3mu40FF/python-project-52/actions)
 
 ## Requirements
 
@@ -25,13 +26,20 @@
 ## Setup
 
 ```bash
+git clone git@github.com:Ky3mu40FF/python-project-52.git
+cd ./python-project-52
+# Create and fill .env file.
+# View .env.example for reference.
+curl -sSL https://install.python-poetry.org | python3 -
 make setup
 make test
+# Run development server:
+poetry run python manage.py runserver
 ```
 
 ---
 
 This repository is for educational project at Hexlet course Python Developer.
-This project is Django-based Task manager.
+This project is simple web-based Task manager based on Python Django.
 
 Deployed service is [here](https://python-project-52-production-39fb.up.railway.app/).
