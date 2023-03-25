@@ -29,6 +29,7 @@ jobs:
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
+          export DJANGO_SETTINGS_MODULE=task_manager.settings
           make test
 
       - name: Run code coverage
