@@ -360,15 +360,15 @@ msgstr "Удаление пользователя"
 
 #: task_manager/users/views.py:97
 msgid "You are logged in!"
-msgstr "Вы вошли в свою учётную запись!"
+msgstr "Вы залогинены"
 
 #: task_manager/users/views.py:99 task_manager/users/views.py:100
 msgid "Login"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/users/views.py:108
 msgid "You are logged out!"
-msgstr "Вы вышли из своей учётной записи!"
+msgstr "Вы разлогинены"
 
 #: tests/labels/test_labels_post.py:42 tests/statuses/test_statuses_post.py:42
 #: tests/tasks/test_tasks_post.py:42 tests/users/test_users_post.py:42
