@@ -260,11 +260,11 @@ msgstr "Пользователи"
 
 #: task_manager/templates/navbar.html:31
 msgid "Log Out"
-msgstr "Выйти"
+msgstr "Выход"
 
 #: task_manager/templates/navbar.html:35
 msgid "Log In"
-msgstr "Войти в учётную запись"
+msgstr "Вход"
 
 #: task_manager/templates/navbar.html:38
 msgid "Registration"
@@ -328,7 +328,7 @@ msgstr "Регистрация пользователя"
 
 #: task_manager/users/views.py:38
 msgid "Register"
-msgstr "Зарегистрироваться"
+msgstr "Регистрация"
 
 #: task_manager/users/views.py:54
 msgid "User is successfully updated!"
@@ -364,7 +364,7 @@ msgstr "Вы вошли в свою учётную запись!"
 
 #: task_manager/users/views.py:99 task_manager/users/views.py:100
 msgid "Login"
-msgstr "Войти"
+msgstr "Вход"
 
 #: task_manager/users/views.py:108
 msgid "You are logged out!"
@@ -397,6 +397,3 @@ msgstr "Task с таким Название уже существует."
 #: tests/users/test_users_post.py:65
 msgid "User with this Username already exists."
 msgstr "User с таким Имя пользователя уже существует."
-
-#~ msgid "Ensure this value has at most 100 characters "
-#~ msgstr "Убедитесь, что это значение содержит не более 100 символов "
