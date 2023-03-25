@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG', False) == 'True'
 
 ALLOWED_HOSTS = [
     'webserver',
@@ -40,9 +40,7 @@ ALLOWED_HOSTS = [
     '*',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    os.getenv('CSRF_TRUSTED_ORIGINS_PUBLIC'),
-]
+CSRF_TRUSTED_ORIGINS = ["https://*.railway.app","https://127.0.0.1","https://localhost","https://0.0.0.0"]
 
 # messages tags conversion to bootstrap alert level classes
 MESSAGE_TAGS = {
@@ -110,7 +108,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if DEBUG:
+if DEBUG or os.getenv('GITHUB_ACTIONS'):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -151,15 +149,24 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
-TIME_ZONE = os.getenv('TIME_ZONE')
+if os.getenv('LANGUAGE_CODE'):
+    LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
+else:
+    LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
 USE_I18N = True
-USE_L10N = True
+
 USE_TZ = True
  
 LANGUAGES = (
-    ('ru', _('Russian')),
-    ('en', _('English')),
+    ('ru-ru', _('Russian')),
+    ('en-us', _('English')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
 )
 
 # Static files (CSS, JavaScript, Images)

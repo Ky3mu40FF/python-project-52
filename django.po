@@ -227,10 +227,6 @@ msgstr "Менеджер задач"
 msgid "Not Found"
 msgstr "Не найдено"
 
-#: task_manager/templates/404.html:14
-msgid "This is not what you are looking for"
-msgstr ""
-
 #: task_manager/templates/404.html:19
 msgid "Back to the home page"
 msgstr "Вернуться на главную страницу"
