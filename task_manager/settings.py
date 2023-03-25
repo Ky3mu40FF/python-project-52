@@ -40,7 +40,7 @@ ALLOWED_HOSTS = [
     '*',
 ]
 
-CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS_PUBLIC').split(',')
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS_PUBLIC', '0.0.0.0').split(',')
 
 # messages tags conversion to bootstrap alert level classes
 MESSAGE_TAGS = {
