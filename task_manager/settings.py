@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG', False) == 'True'
 
 ALLOWED_HOSTS = [
     'webserver',
@@ -40,9 +40,7 @@ ALLOWED_HOSTS = [
     '*',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    os.getenv('CSRF_TRUSTED_ORIGINS_PUBLIC'),
-]
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS_PUBLIC').split(',')
 
 # messages tags conversion to bootstrap alert level classes
 MESSAGE_TAGS = {
@@ -157,8 +155,12 @@ USE_I18N = True
 USE_TZ = True
  
 LANGUAGES = (
-    ('ru', _('Russian')),
-    ('en', _('English')),
+    ('ru-ru', _('Russian')),
+    ('en-us', _('English')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
 )
 
 # Static files (CSS, JavaScript, Images)
