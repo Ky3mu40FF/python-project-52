@@ -1,14 +1,18 @@
 import os
 import json
-
 import pytest
-
 from django.core.management import call_command
-
+from django.utils.translation import activate
 from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
 from task_manager.users.models import User
+
+
+
+@pytest.fixture(autouse=True)
+def set_default_language():
+    activate('en-us')
 
 
 @pytest.fixture(scope='session')
