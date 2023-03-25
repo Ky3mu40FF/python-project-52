@@ -40,7 +40,7 @@ ALLOWED_HOSTS = [
     '*',
 ]
 
-CSRF_TRUSTED_ORIGINS = ["https://*.railway.app","https://127.0.0.1","https://localhost","https://0.0.0.0"]
+CSRF_TRUSTED_ORIGINS = ["https://*.railway.app","https://127.0.0.1","https://localhost","https://0.0.0.0", "http://webserver"]
 
 # messages tags conversion to bootstrap alert level classes
 MESSAGE_TAGS = {
