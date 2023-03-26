@@ -1,8 +1,5 @@
-import os
-from django.http import HttpRequest
 from django.urls import reverse_lazy
 from task_manager.users.models import User
-from playwright.sync_api import sync_playwright
 
 
 def test_users_list_view(db, django_db_setup, client, user_model_test_fixtures):
