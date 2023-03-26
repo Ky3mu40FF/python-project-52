@@ -366,20 +366,12 @@ msgstr "Удаление пользователя"
 msgid "You are logged in!"
 msgstr "Вы залогинены"
 
-<<<<<<< HEAD
-#: task_manager/users/views.py:99
-=======
 #: task_manager/users/views.py:107
->>>>>>> AUTOTEST-FIXES
 msgctxt "header"
 msgid "Login"
 msgstr "Вход"
 
-<<<<<<< HEAD
-#: task_manager/users/views.py:100
-=======
 #: task_manager/users/views.py:108
->>>>>>> AUTOTEST-FIXES
 msgctxt "button"
 msgid "Login"
 msgstr "Войти"
