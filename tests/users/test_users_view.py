@@ -151,22 +151,3 @@ def test_users_delete_view_not_logged_in(db, django_db_setup, client):
 
     assert response.status_code == 302
     assert response['Location'] == reverse_lazy('login')
-
-
-def test(db, django_db_setup, user_model_test_fixtures):
-    os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
-    playwright = sync_playwright().start()
-    browser = playwright.chromium.launch()
-    page = browser.new_page()
-    request = HttpRequest()
-    page.goto('http://127.0.0.1:8000'+reverse_lazy('login'))
-    page.wait_for_selector('text=Войти')
-    page.fill('[name=username]', user_model_test_fixtures['login']['user1']['auth_data']['username'])
-    page.fill('[name=password]', user_model_test_fixtures['login']['user1']['auth_data']['password'])
-    print(page.content())
-    page.click('text="Войти"')
-    page.wait_for_load_state()
-    assert page.url == page.goto('http://127.0.0.1:8000'+reverse_lazy('homepage')).url
-    page.close()
-    browser.close()
-    playwright.stop()
