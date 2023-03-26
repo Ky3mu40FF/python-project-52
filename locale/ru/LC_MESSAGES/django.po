@@ -362,7 +362,13 @@ msgstr "Удаление пользователя"
 msgid "You are logged in!"
 msgstr "Вы залогинены"
 
-#: task_manager/users/views.py:99 task_manager/users/views.py:100
+#: task_manager/users/views.py:99
+msgctxt "header"
+msgid "Login"
+msgstr "Вход"
+
+#: task_manager/users/views.py:100
+msgctxt "button"
 msgid "Login"
 msgstr "Войти"
 

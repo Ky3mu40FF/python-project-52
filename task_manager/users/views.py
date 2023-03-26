@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, pgettext
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 from task_manager.mixins import (
     AuthRequiredMixin,
@@ -96,8 +96,8 @@ class UserAuthenticationFormView(SuccessMessageMixin, LoginView):
     next_page = reverse_lazy('homepage')
     success_message = _('You are logged in!')
     extra_context = {
-        'title': _('Login'),
-        'button_text': _('Login'),
+        'title': pgettext("header", "Login"),
+        'button_text': pgettext("button", "Login"),
     }
 
 
