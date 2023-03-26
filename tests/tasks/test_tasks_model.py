@@ -1,6 +1,3 @@
-from django.db.models.deletion import ProtectedError
-from django.db.utils import IntegrityError
-import pytest
 from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
 from task_manager.users.models import User

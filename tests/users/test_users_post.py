@@ -1,6 +1,5 @@
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-import pytest
 from task_manager.users.models import User
 
 
@@ -21,7 +20,7 @@ def test_create_valid_user(db, django_db_setup, client, user_model_test_fixtures
 
     assert response.status_code == 302
     assert response['Location'] == reverse_lazy('login')
-    assert User.objects.count() == users_count_before_creation+1
+    assert User.objects.count() == users_count_before_creation + 1
     assert User.objects.last().username == user_data['username']
 
 
@@ -86,7 +85,9 @@ def test_create_long_name(db, django_db_setup, client, user_model_test_fixtures)
     )
 
     errors = response.context['form'].errors
-    error_help = _('Ensure this value has at most 100 characters (it has %s}).') % len(user_data["username"])
+    error_help = _(
+        'Ensure this value has at most 100 characters (it has %s}).'
+    ) % len(user_data["username"])
 
     assert 'username' in errors
     assert [error_help] == errors['username']
@@ -105,7 +106,7 @@ def test_create_user_not_logged_in(db, django_db_setup, client, user_model_test_
 
     assert response.status_code == 302
     assert response['Location'] == reverse_lazy('login')
-    assert User.objects.count() == users_count_before_creation+1
+    assert User.objects.count() == users_count_before_creation + 1
     assert User.objects.last().username == user_data['username']
 
 

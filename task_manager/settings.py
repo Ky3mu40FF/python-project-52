@@ -40,7 +40,14 @@ ALLOWED_HOSTS = [
     '*',
 ]
 
-CSRF_TRUSTED_ORIGINS = ["https://*.railway.app","https://127.0.0.1","https://localhost","https://0.0.0.0", "http://webserver", "http://webserver:9000"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.railway.app",
+    "https://127.0.0.1",
+    "https://localhost",
+    "https://0.0.0.0",
+    "http://webserver",
+    "http://webserver:9000"
+]
 
 # messages tags conversion to bootstrap alert level classes
 MESSAGE_TAGS = {
@@ -115,8 +122,6 @@ DATABASES = {
     )
 }
 
-
-
 AUTH_USER_MODEL = 'users.User'
 
 # Password validation
@@ -152,7 +157,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
- 
+
 LANGUAGES = (
     ('ru-ru', _('Russian')),
     ('en-us', _('English')),

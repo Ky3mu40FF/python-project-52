@@ -1,8 +1,5 @@
-from django.db.models.deletion import ProtectedError
 from django.db.utils import IntegrityError
 import pytest
-from task_manager.statuses.models import Status
-from task_manager.tasks.models import Task
 from task_manager.users.models import User
 
 
@@ -25,10 +22,9 @@ def test_create_user(db, django_db_setup, user_model_test_fixtures) -> None:
 
 def test_create_user_null_fields(db, django_db_setup, user_model_test_fixtures) -> None:
     user_data = user_model_test_fixtures['create']['null_fields'].copy()
-    
 
     with pytest.raises(IntegrityError):
-        user = User.objects.create(
+        User.objects.create(
             username=user_data['username'],
             first_name=user_data['first_name'],
             last_name=user_data['last_name'],
@@ -38,7 +34,7 @@ def test_create_user_null_fields(db, django_db_setup, user_model_test_fixtures) 
 def test_create_user_existing_username(db, django_db_setup, user_model_test_fixtures) -> None:
     user_data = user_model_test_fixtures['create']['exists'].copy()
     with pytest.raises(IntegrityError):
-        user = User.objects.create(
+        User.objects.create(
             username=user_data['username'],
             first_name=user_data['first_name'],
             last_name=user_data['last_name'],

@@ -1,6 +1,6 @@
-import pytest
 from task_manager.users.forms import CustomUserForm
 from task_manager.users.models import User
+
 
 def test_create_user(db, django_db_setup, user_model_test_fixtures) -> None:
     user_data = user_model_test_fixtures['create']['valid'].copy()

@@ -402,7 +402,7 @@ msgstr "Status с таким Name уже существует."
 
 #: tests/tasks/test_tasks_post.py:65
 msgid "Task with this Name already exists."
-msgstr "Task с таким Название уже существует."
+msgstr "Task с таким Имя уже существует."
 
 #: tests/users/test_users_post.py:65
 msgid "User with this Username already exists."
