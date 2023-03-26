@@ -22,7 +22,7 @@ class TaskFilter(FilterSet):
         widget=forms.Select,
     )
     labels = ModelChoiceFilter(
-        label=_('Labels'),
+        label=_('Label'),
         queryset=Label.objects.all(),
         widget=forms.Select,
     )
