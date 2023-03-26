@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-26 01:46+0300\n"
+"POT-Creation-Date: 2023-03-26 14:12+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,7 @@ msgstr "Изменение метки"
 #: task_manager/templates/statuses/list.html:33
 #: task_manager/templates/tasks/details.html:49
 #: task_manager/templates/tasks/list.html:48
-#: task_manager/templates/users/list.html:33 task_manager/users/views.py:59
+#: task_manager/templates/users/list.html:33 task_manager/users/views.py:61
 msgid "Update"
 msgstr "Изменить"
 
@@ -76,7 +76,7 @@ msgid "Label deletion"
 msgstr "Удаление метки"
 
 #: task_manager/labels/views.py:78 task_manager/statuses/views.py:83
-#: task_manager/tasks/views.py:116 task_manager/users/views.py:87
+#: task_manager/tasks/views.py:116 task_manager/users/views.py:89
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
@@ -254,7 +254,7 @@ msgstr "Действия"
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/templates/navbar.html:14 task_manager/users/views.py:24
+#: task_manager/templates/navbar.html:14 task_manager/users/views.py:26
 msgid "Users"
 msgstr "Пользователи"
 
@@ -318,55 +318,61 @@ msgstr "Фамилия"
 msgid "Password"
 msgstr "Пароль"
 
-#: task_manager/users/views.py:35
+#: task_manager/users/views.py:37
 msgid "User is successfully registered!"
 msgstr "Пользователь зарегистрирован!"
 
-#: task_manager/users/views.py:37
+#: task_manager/users/views.py:39
 msgid "User registration"
 msgstr "Регистрация пользователя"
 
-#: task_manager/users/views.py:38
+#: task_manager/users/views.py:40
 msgid "Register"
 msgstr "Регистрация"
 
-#: task_manager/users/views.py:54
+#: task_manager/users/views.py:56
 msgid "User is successfully updated!"
 msgstr "Пользователь изменён!"
 
-#: task_manager/users/views.py:56
+#: task_manager/users/views.py:58
 msgid "You cannot update another users."
 msgstr "Вы не можете изменить другого пользователя."
 
-#: task_manager/users/views.py:58
+#: task_manager/users/views.py:60
 msgid "User updating"
 msgstr "Изменение пользователя"
 
-#: task_manager/users/views.py:80
+#: task_manager/users/views.py:82
 msgid "User is successfully deleted!"
 msgstr "Пользователь удалён!"
 
-#: task_manager/users/views.py:82
+#: task_manager/users/views.py:84
 msgid "Only user can delete himself."
 msgstr "Только пользователь может удалить себя."
 
-#: task_manager/users/views.py:84
+#: task_manager/users/views.py:86
 msgid "You cannot delete the user associated with task."
 msgstr "Нельзя удалить пользователя, связанного с задачей."
 
-#: task_manager/users/views.py:86
+#: task_manager/users/views.py:88
 msgid "User deletion"
 msgstr "Удаление пользователя"
 
-#: task_manager/users/views.py:97
+#: task_manager/users/views.py:99
 msgid "You are logged in!"
 msgstr "Вы залогинены"
 
-#: task_manager/users/views.py:99 task_manager/users/views.py:100
+#: task_manager/users/views.py:101
+msgctxt "header"
+msgid "Login"
+msgstr "Вход"
+
+#: task_manager/users/views.py:102
+msgctxt "button"
 msgid "Login"
 msgstr "Войти"
 
-#: task_manager/users/views.py:108
+#: task_manager/users/views.py:110
 msgid "You are logged out!"
 msgstr "Вы разлогинены"
 
