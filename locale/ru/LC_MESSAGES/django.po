@@ -344,7 +344,7 @@ msgstr "Изменение пользователя"
 
 #: task_manager/users/views.py:82
 msgid "User is successfully deleted!"
-msgstr "Пользователь удалён!"
+msgstr "Пользователь успешно удалён"
 
 #: task_manager/users/views.py:84
 msgid "Only user can delete himself."
