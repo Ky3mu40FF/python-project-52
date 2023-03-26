@@ -1,5 +1,4 @@
 from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.models import Task
 
 
@@ -20,11 +19,9 @@ def test_tasks_list_view(
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'tasks/list.html',
-            response.templates,
-        ),
-        False,
-    )
+        lambda template: template.name == 'tasks/list.html',
+        response.templates
+    ), False)
     # Check QuerySet
     assert len(response.context['tasks']) == Task.objects.count()
     assert set(response.context['tasks']) == set(Task.objects.all())
@@ -65,11 +62,9 @@ def test_tasks_filter_by_status(
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'tasks/list.html',
-            response.templates,
-        ),
-        False,
-    )
+        lambda template: template.name == 'tasks/list.html',
+        response.templates
+    ), False)
     assert len(response.context['tasks']) == 1
     assert task1.name in str(response.content.decode('utf-8'))
     assert task2.name not in str(response.content.decode('utf-8'))
@@ -98,11 +93,9 @@ def test_tasks_filter_by_executor(
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'tasks/list.html',
-            response.templates,
-        ),
-        False,
-    )
+        lambda template: template.name == 'tasks/list.html',
+        response.templates
+    ), False)
     assert len(response.context['tasks']) == 1
     assert task1.name not in str(response.content.decode('utf-8'))
     assert task2.name in str(response.content.decode('utf-8'))
@@ -131,11 +124,9 @@ def test_tasks_filter_by_label(
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'tasks/list.html',
-            response.templates,
-        ),
-        False,
-    )
+        lambda template: template.name == 'tasks/list.html',
+        response.templates
+    ), False)
     assert len(response.context['tasks']) == 1
     assert task1.name in str(response.content.decode('utf-8'))
     assert task2.name not in str(response.content.decode('utf-8'))
@@ -164,11 +155,9 @@ def test_tasks_filter_own_tasks(
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'tasks/list.html',
-            response.templates,
-        ),
-        False,
-    )
+        lambda template: template.name == 'tasks/list.html',
+        response.templates
+    ), False)
     assert len(response.context['tasks']) == 1
     assert task1.name not in str(response.content.decode('utf-8'))
     assert task2.name in str(response.content.decode('utf-8'))
@@ -194,11 +183,9 @@ def test_details_view(
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'tasks/details.html',
-            response.templates
-        ),
-        False,
-    )
+        lambda template: template.name == 'tasks/details.html',
+        response.templates
+    ), False)
     assert task1.name in str(response.content.decode('utf-8'))
     assert task1.description in str(response.content.decode('utf-8'))
     assert task1.status.name in str(response.content.decode('utf-8'))
@@ -285,11 +272,9 @@ def test_tasks_delete_view(
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'tasks/delete.html',
-            response.templates
-        ),
-        False,
-    )
+        lambda template: template.name == 'tasks/delete.html',
+        response.templates
+    ), False)
 
 
 def test_tasks_delete_view_different_user(

@@ -19,11 +19,9 @@ def test_labels_list_view(
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'labels/list.html',
-            response.templates,
-        ),
-        False,
-    )
+        lambda template: template.name == 'labels/list.html',
+        response.templates,
+    ), False)
     # Check QuerySet
     assert len(response.context['labels']) == Label.objects.count()
     assert set(response.context['labels']) == set(Label.objects.all())
@@ -110,11 +108,9 @@ def test_labels_delete_view(
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'labels/delete.html',
-            response.templates,
-        ),
-        False,
-    )
+        lambda template: template.name == 'labels/delete.html',
+        response.templates,
+    ), False)
 
 
 def test_labels_delete_view_not_logged_in(db, django_db_setup, client):

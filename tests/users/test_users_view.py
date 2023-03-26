@@ -11,11 +11,9 @@ def test_users_list_view(db, django_db_setup, client, user_model_test_fixtures):
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'users/list.html',
-            response.templates
-        ),
-        False,
-    )
+        lambda template: template.name == 'users/list.html',
+        response.templates
+    ), False)
     # Check QuerySet
     assert len(response.context['users']) == User.objects.count()
     assert set(response.context['users']) == set(User.objects.all())
@@ -115,11 +113,9 @@ def test_users_delete_view(db, django_db_setup, client, user_model_test_fixtures
 
     assert response.status_code == 200
     assert next(filter(
-            lambda template: template.name == 'users/delete.html',
-            response.templates,
-        ),
-        False,
-    )
+        lambda template: template.name == 'users/delete.html',
+        response.templates
+    ), False)
 
 
 def test_users_delete_view_different_user(db, django_db_setup, client, user_model_test_fixtures):
