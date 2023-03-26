@@ -1,5 +1,5 @@
-import pytest
 from task_manager.statuses.forms import StatusCreateForm, StatusUpdateForm
+
 
 def test_create_status(db, django_db_setup, status_model_test_fixtures) -> None:
     status_data = status_model_test_fixtures['create']['valid'].copy()

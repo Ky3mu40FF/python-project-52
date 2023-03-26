@@ -1,10 +1,6 @@
-from django.db.models.deletion import ProtectedError
 from django.db.utils import IntegrityError
 import pytest
 from task_manager.labels.models import Label
-from task_manager.statuses.models import Status
-from task_manager.tasks.models import Task
-from task_manager.users.models import User
 
 
 def test_create_label(db, django_db_setup, label_model_test_fixtures) -> None:
@@ -28,9 +24,13 @@ def test_create_label_existing_name(db, django_db_setup, label_model_test_fixtur
     label_data = label_model_test_fixtures['create']['exists'].copy()
     with pytest.raises(IntegrityError):
         Label.objects.create(name=label_data['name'])
-    
 
-def test_delete_label_existing_not_associated_with_task(db, django_db_setup, label_model_test_fixtures) -> None:
+
+def test_delete_label_existing_not_associated_with_task(
+    db,
+    django_db_setup,
+    label_model_test_fixtures,
+) -> None:
     label_data = label_model_test_fixtures['delete']['valid'].copy()
     label = Label.objects.get(name=label_data['name'])
     label.delete()

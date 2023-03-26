@@ -1,9 +1,6 @@
-from django.db.models.deletion import ProtectedError
 from django.db.utils import IntegrityError
 import pytest
 from task_manager.statuses.models import Status
-from task_manager.tasks.models import Task
-from task_manager.users.models import User
 
 
 def test_create_status(db, django_db_setup, status_model_test_fixtures) -> None:
@@ -27,9 +24,13 @@ def test_create_status_existing_name(db, django_db_setup, status_model_test_fixt
     status_data = status_model_test_fixtures['create']['exists'].copy()
     with pytest.raises(IntegrityError):
         Status.objects.create(name=status_data['name'])
-    
 
-def test_delete_status_existing_not_associated_with_task(db, django_db_setup, status_model_test_fixtures) -> None:
+
+def test_delete_status_existing_not_associated_with_task(
+    db,
+    django_db_setup,
+    status_model_test_fixtures,
+) -> None:
     status_data = status_model_test_fixtures['delete']['valid'].copy()
     status = Status.objects.get(name=status_data['name'])
     status.delete()
@@ -44,7 +45,11 @@ def test_delete_status_not_existing(db, django_db_setup, status_model_test_fixtu
         status.delete()
 
 
-def test_delete_status_associated_with_task(db, django_db_setup, status_model_test_fixtures) -> None:
+def test_delete_status_associated_with_task(
+    db,
+    django_db_setup,
+    status_model_test_fixtures,
+) -> None:
     status_data = status_model_test_fixtures['delete']['associated_with_task'].copy()
     status = Status.objects.get(name=status_data['name'])
 

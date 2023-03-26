@@ -3,11 +3,6 @@ import json
 import pytest
 from django.core.management import call_command
 from django.utils.translation import activate
-from task_manager.labels.models import Label
-from task_manager.statuses.models import Status
-from task_manager.tasks.models import Task
-from task_manager.users.models import User
-
 
 
 @pytest.fixture(autouse=True)
@@ -23,7 +18,7 @@ def django_db_setup(django_db_setup, django_db_blocker):
 
 @pytest.fixture()
 def label_model_test_fixtures():
-    file_path =  os.path.join('tests/fixtures', 'test_label.json')
+    file_path = os.path.join('tests/fixtures', 'test_label.json')
     with open(file_path, mode='r') as f:
         result = json.load(f)
     return result
@@ -31,7 +26,7 @@ def label_model_test_fixtures():
 
 @pytest.fixture()
 def user_model_test_fixtures():
-    file_path =  os.path.join('tests/fixtures', 'test_user.json')
+    file_path = os.path.join('tests/fixtures', 'test_user.json')
     with open(file_path, mode='r') as f:
         result = json.load(f)
     return result
@@ -39,7 +34,7 @@ def user_model_test_fixtures():
 
 @pytest.fixture()
 def status_model_test_fixtures():
-    file_path =  os.path.join('tests/fixtures', 'test_status.json')
+    file_path = os.path.join('tests/fixtures', 'test_status.json')
     with open(file_path, mode='r') as f:
         result = json.load(f)
     return result
@@ -47,7 +42,7 @@ def status_model_test_fixtures():
 
 @pytest.fixture()
 def task_model_test_fixtures():
-    file_path =  os.path.join('tests/fixtures', 'test_task.json')
+    file_path = os.path.join('tests/fixtures', 'test_task.json')
     with open(file_path, mode='r') as f:
         result = json.load(f)
     return result

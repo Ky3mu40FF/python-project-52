@@ -1,9 +1,15 @@
 """task_manager - users app - views module with users app view classes."""
+from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+<<<<<<< HEAD
 from django.utils.translation import gettext_lazy as _, pgettext
+=======
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import pgettext
+>>>>>>> AUTOTEST-FIXES
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 from task_manager.mixins import (
     AuthRequiredMixin,
@@ -39,7 +45,12 @@ class UserCreationFormView(SuccessMessageMixin, CreateView):
     }
 
 
-class UserUpdateFormView(AuthRequiredMixin, UserPermissionMixin, UpdateView):
+class UserUpdateFormView(
+    SuccessMessageMixin,
+    AuthRequiredMixin,
+    UserPermissionMixin,
+    UpdateView,
+):
     """
     Update user.
 
@@ -61,6 +72,7 @@ class UserUpdateFormView(AuthRequiredMixin, UserPermissionMixin, UpdateView):
 
 
 class UserDeleteFormView(
+    SuccessMessageMixin,
     AuthRequiredMixin,
     UserPermissionMixin,
     DeleteProtectionMixin,
@@ -96,13 +108,22 @@ class UserAuthenticationFormView(SuccessMessageMixin, LoginView):
     next_page = reverse_lazy('homepage')
     success_message = _('You are logged in!')
     extra_context = {
+<<<<<<< HEAD
         'title': pgettext("header", "Login"),
         'button_text': pgettext("button", "Login"),
+=======
+        'title': pgettext(context='header', message='Login'),
+        'button_text': pgettext(context='button', message='Login'),
+>>>>>>> AUTOTEST-FIXES
     }
 
 
-class UserLogOutView(LogoutView):
+class UserLogOutView(SuccessMessageMixin, LogoutView):
     """Log Out user."""
 
     next_page = reverse_lazy('homepage')
     success_message = _('You are logged out!')
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.info(request, self.success_message)
+        return super().dispatch(request, *args, **kwargs)
