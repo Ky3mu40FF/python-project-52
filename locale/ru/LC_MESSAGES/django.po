@@ -174,7 +174,7 @@ msgstr "Детали задачи"
 
 #: task_manager/tasks/views.py:56
 msgid "Task is successfully created!"
-msgstr "Задача создана!"
+msgstr "Задача успешно создана"
 
 #: task_manager/tasks/views.py:58
 msgid "Task creation"
@@ -182,7 +182,7 @@ msgstr "Создание задачи"
 
 #: task_manager/tasks/views.py:88
 msgid "Task is successfully updated!"
-msgstr "Задача изменена!"
+msgstr "Задача успешно изменена"
 
 #: task_manager/tasks/views.py:90
 msgid "Task updating"
@@ -190,7 +190,7 @@ msgstr "Изменение задачи"
 
 #: task_manager/tasks/views.py:111
 msgid "Task is successfully deleted!"
-msgstr "Задача удалена!"
+msgstr "Задача успешно удалена"
 
 #: task_manager/tasks/views.py:113
 msgid "Only authors can delete their tasks."
