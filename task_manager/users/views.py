@@ -1,9 +1,11 @@
 """task_manager - users app - views module with users app view classes."""
+from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _, pgettext
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import pgettext
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 from task_manager.mixins import (
     AuthRequiredMixin,
@@ -96,13 +98,17 @@ class UserAuthenticationFormView(SuccessMessageMixin, LoginView):
     next_page = reverse_lazy('homepage')
     success_message = _('You are logged in!')
     extra_context = {
-        'title': pgettext("header", "Login"),
-        'button_text': pgettext("button", "Login"),
+        'title': pgettext('header', 'Login'),
+        'button_text': pgettext('button', 'Login'),
     }
 
 
-class UserLogOutView(LogoutView):
+class UserLogOutView(SuccessMessageMixin, LogoutView):
     """Log Out user."""
 
     next_page = reverse_lazy('homepage')
     success_message = _('You are logged out!')
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.info(request, self.success_message)
+        return super().dispatch(request, *args, **kwargs)
