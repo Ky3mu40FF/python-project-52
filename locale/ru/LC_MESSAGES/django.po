@@ -332,7 +332,7 @@ msgstr "Зарегистрировать"
 
 #: task_manager/users/views.py:56
 msgid "User is successfully updated!"
-msgstr "Пользователь изменён!"
+msgstr "Пользователь успешно изменён"
 
 #: task_manager/users/views.py:58
 msgid "You cannot update another users."
