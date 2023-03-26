@@ -42,10 +42,10 @@ class UserCreationFormView(SuccessMessageMixin, CreateView):
 
 
 class UserUpdateFormView(
+    SuccessMessageMixin,
     AuthRequiredMixin,
     UserPermissionMixin,
     UpdateView,
-    SuccessMessageMixin,
 ):
     """
     Update user.
@@ -68,11 +68,11 @@ class UserUpdateFormView(
 
 
 class UserDeleteFormView(
+    SuccessMessageMixin,
     AuthRequiredMixin,
     UserPermissionMixin,
     DeleteProtectionMixin,
     DeleteView,
-    SuccessMessageMixin,
 ):
     """
     Delete user.
