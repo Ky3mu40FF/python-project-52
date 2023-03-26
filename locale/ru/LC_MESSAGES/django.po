@@ -320,7 +320,7 @@ msgstr "Пароль"
 
 #: task_manager/users/views.py:37
 msgid "User is successfully registered!"
-msgstr "Пользователь зарегистрирован!"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py:39
 msgid "User registration"
