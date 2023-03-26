@@ -35,7 +35,7 @@ msgstr "Метки"
 
 #: task_manager/labels/views.py:35
 msgid "Label is successfully created!"
-msgstr "Метка создана!"
+msgstr "Метка успешно создана"
 
 #: task_manager/labels/views.py:37
 msgid "Label creation"
@@ -48,7 +48,7 @@ msgstr "Создать"
 
 #: task_manager/labels/views.py:52
 msgid "Label is successfully updated!"
-msgstr "Метка изменена!"
+msgstr "Метка успешно изменена"
 
 #: task_manager/labels/views.py:54
 msgid "Label updating"
@@ -65,7 +65,7 @@ msgstr "Изменить"
 
 #: task_manager/labels/views.py:73
 msgid "Label is successfully deleted!"
-msgstr "Метка удалена!"
+msgstr "Метка успешно удалена"
 
 #: task_manager/labels/views.py:75
 msgid "You cannot delete the label assiciated with task."
@@ -98,7 +98,7 @@ msgstr "Статусы"
 
 #: task_manager/statuses/views.py:37
 msgid "Status is successfully created!"
-msgstr "Статус создан!"
+msgstr "Статус успешно создан"
 
 #: task_manager/statuses/views.py:39
 msgid "Status creation"
@@ -106,7 +106,7 @@ msgstr "Создание статуса"
 
 #: task_manager/statuses/views.py:55
 msgid "Status is successfully updated!"
-msgstr "Статус Изменён!"
+msgstr "Статус успешно изменён"
 
 #: task_manager/statuses/views.py:57
 msgid "Status updating"
@@ -114,7 +114,7 @@ msgstr "Изменение статуса"
 
 #: task_manager/statuses/views.py:78
 msgid "Status is successfully deleted!"
-msgstr "Статус удалён!"
+msgstr "Статус успешно удалён"
 
 #: task_manager/statuses/views.py:80
 msgid "You cannot delete the status associated with task."
