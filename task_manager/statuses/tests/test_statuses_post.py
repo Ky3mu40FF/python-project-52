@@ -3,8 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from task_manager.statuses.models import Status
 
 
-# https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#django.urls.ResolverMatch
-
 def test_create_valid_status(
     db,
     django_db_setup,
@@ -21,7 +19,7 @@ def test_create_valid_status(
     statuses_count_before_creation = Status.objects.count()
     response = client.post(
         reverse_lazy('statuses_create'),
-        data=status_data
+        data=status_data,
     )
 
     assert response.status_code == 302
@@ -46,7 +44,7 @@ def test_create_missing_fields(
     statuses_count_before_creation = Status.objects.count()
     response = client.post(
         reverse_lazy('statuses_create'),
-        data=status_data
+        data=status_data,
     )
 
     errors = response.context['form'].errors
@@ -75,7 +73,7 @@ def test_create_existing_status(
     statuses_count_before_creation = Status.objects.count()
     response = client.post(
         reverse_lazy('statuses_create'),
-        data=status_data
+        data=status_data,
     )
 
     errors = response.context['form'].errors
@@ -105,7 +103,7 @@ def test_create_long_name(
     statuses_count_before_creation = Status.objects.count()
     response = client.post(
         reverse_lazy('statuses_create'),
-        data=status_data
+        data=status_data,
     )
 
     errors = response.context['form'].errors
@@ -130,7 +128,7 @@ def test_create_status_not_logged_in(
     statuses_count_before_creation = Status.objects.count()
     response = client.post(
         reverse_lazy('statuses_create'),
-        data=status_data
+        data=status_data,
     )
 
     assert response.status_code == 302
@@ -156,7 +154,7 @@ def test_update_status_valid(
     status_pk = 3
     response = client.post(
         reverse_lazy('statuses_update', kwargs={'pk': status_pk}),
-        data=status_data
+        data=status_data,
     )
 
     assert response.status_code == 302

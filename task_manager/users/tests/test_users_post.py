@@ -3,8 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from task_manager.users.models import User
 
 
-# https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#django.urls.ResolverMatch
-
 def test_create_valid_user(db, django_db_setup, client, user_model_test_fixtures) -> None:
     user_data = user_model_test_fixtures['create']['valid'].copy()
     user_login_data = user_model_test_fixtures['login']['user1']['auth_data'].copy()

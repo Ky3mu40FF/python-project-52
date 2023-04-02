@@ -3,8 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.models import Task
 
 
-# https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#django.urls.ResolverMatch
-
 def test_create_valid_task(
     db,
     django_db_setup,

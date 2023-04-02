@@ -3,8 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from task_manager.labels.models import Label
 
 
-# https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#django.urls.ResolverMatch
-
 def test_create_valid_label(
     db,
     django_db_setup,
@@ -21,7 +19,7 @@ def test_create_valid_label(
     labels_count_before_creation = Label.objects.count()
     response = client.post(
         reverse_lazy('labels_create'),
-        data=label_data
+        data=label_data,
     )
 
     assert response.status_code == 302
@@ -46,7 +44,7 @@ def test_create_missing_fields(
     labels_count_before_creation = Label.objects.count()
     response = client.post(
         reverse_lazy('labels_create'),
-        data=label_data
+        data=label_data,
     )
 
     errors = response.context['form'].errors
@@ -75,7 +73,7 @@ def test_create_existing_label(
     labels_count_before_creation = Label.objects.count()
     response = client.post(
         reverse_lazy('labels_create'),
-        data=label_data
+        data=label_data,
     )
 
     errors = response.context['form'].errors
@@ -105,12 +103,12 @@ def test_create_long_name(
     labels_count_before_creation = Label.objects.count()
     response = client.post(
         reverse_lazy('labels_create'),
-        data=label_data
+        data=label_data,
     )
 
     errors = response.context['form'].errors
     error_help = _(
-        'Ensure this value has at most 100 characters (it has %s}).'
+        'Ensure this value has at most 100 characters (it has %s}).',
     ) % len(label_data["name"])
 
     assert 'name' in errors
@@ -125,7 +123,7 @@ def test_create_label_not_logged_in(db, django_db_setup, client, label_model_tes
     labels_count_before_creation = Label.objects.count()
     response = client.post(
         reverse_lazy('labels_create'),
-        data=label_data
+        data=label_data,
     )
 
     assert response.status_code == 302
@@ -150,7 +148,7 @@ def test_update_label_valid(
     labels_count_before_creation = Label.objects.count()
     response = client.post(
         reverse_lazy('labels_update', kwargs={'pk': 1}),
-        data=label_data
+        data=label_data,
     )
 
     assert response.status_code == 302

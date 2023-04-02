@@ -1,5 +1,5 @@
-from django.db.utils import IntegrityError
 import pytest
+from django.db.utils import IntegrityError
 from task_manager.statuses.models import Status
 
 
